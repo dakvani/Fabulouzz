@@ -2,30 +2,15 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton: React.FC = () => {
-  const phoneNumber = '919061237333';
-  const message = encodeURIComponent('Hello! I would like to inquire about your services.');
-  
-  // Use direct WhatsApp URL that opens in app/web without api.whatsapp.com
-  const whatsappUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-  const mobileWhatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    // Detect mobile devices
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-      window.location.href = mobileWhatsappUrl;
-    } else {
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }
-  };
+  // Using wa.me link format with pre-filled message
+  const whatsappUrl = 'https://wa.me/919061237333?text=Hello%21%20I%20would%20like%20to%20inquire%20about%20your%20services.';
 
   return (
     <a
       href={whatsappUrl}
-      onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 group"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group"
       aria-label="Chat on WhatsApp"
     >
       <div className="relative">
