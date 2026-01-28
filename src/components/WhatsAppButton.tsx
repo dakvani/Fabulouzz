@@ -1,7 +1,7 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
-const WhatsAppButton = forwardRef<HTMLAnchorElement>((_, ref) => {
+const WhatsAppButton: React.FC = () => {
   const phoneNumber = '919061237333';
   const message = encodeURIComponent('Hello! I would like to inquire about your services.');
   
@@ -23,7 +23,6 @@ const WhatsAppButton = forwardRef<HTMLAnchorElement>((_, ref) => {
 
   return (
     <a
-      ref={ref}
       href={whatsappUrl}
       onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 group"
@@ -46,8 +45,6 @@ const WhatsAppButton = forwardRef<HTMLAnchorElement>((_, ref) => {
       </div>
     </a>
   );
-});
-
-WhatsAppButton.displayName = 'WhatsAppButton';
+};
 
 export default WhatsAppButton;
