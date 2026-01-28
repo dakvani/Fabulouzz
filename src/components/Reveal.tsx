@@ -22,6 +22,9 @@ const Reveal: React.FC<RevealProps> = ({
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -33,9 +36,10 @@ const Reveal: React.FC<RevealProps> = ({
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
-    if (ref.current) observer.observe(ref.current);
+    
+    observer.observe(currentRef);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      observer.unobserve(currentRef);
     };
   }, [once, hasAnimated]);
 

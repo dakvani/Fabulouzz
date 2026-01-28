@@ -23,7 +23,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="font-sans bg-background text-foreground selection:bg-primary/30 selection:text-foreground scroll-smooth relative overflow-x-hidden subpixel-antialiased">
+    <div className="font-sans bg-background text-foreground selection:bg-primary/30 selection:text-foreground relative overflow-x-hidden subpixel-antialiased">
       <ScrollProgress />
       
       {/* Global Animated Background Blobs with Parallax */}

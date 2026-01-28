@@ -102,10 +102,18 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
   }
 }
 
