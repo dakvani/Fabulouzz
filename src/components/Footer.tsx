@@ -36,7 +36,7 @@ const Footer: React.FC = () => (
       </div>
       <Reveal direction="up" delay={200}>
         <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border text-center text-[10px] sm:text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Fabulouzz Technologies. All rights reserved.
+          &copy; {new Date().getFullYear()} Fabulouzz Technologies. All Rights Reserved. | Licensed under applicable laws.
         </div>
       </Reveal>
     </div>
