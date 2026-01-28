@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
             <div className="space-y-5 md:space-y-8 relative z-10">
               {[
                 { icon: <MapPin className="w-5 h-5 md:w-6 md:h-6" />, title: "Our Office", lines: ["17/79(8), Malabar Tower, Coimbatore Main Road", "Near Stadium Bus Stand, Palakkad"] },
-                { icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />, title: "Phone", lines: ["+91 9061 237 333", "+91 9333 049 125"] },
+                { icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />, title: "Phone", lines: ["+91 9061 239 333", "+91 9333 049 125"] },
                 { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, title: "Email", lines: ["info@fabulouzz.com"] }
               ].map((item, idx) => (
                 <Reveal key={idx} delay={idx * 150} direction="left">
