@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
     const subject = `New Inquiry from ${name} - ${service}`;
     const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
 
-    window.location.href = `mailto:support@fabulouzz.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:info@fabulouzz.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
               {[
                 { icon: <MapPin className="w-5 h-5 md:w-6 md:h-6" />, title: "Our Office", lines: ["17/79(8), Malabar Tower, Coimbatore Main Road", "Near Stadium Bus Stand, Palakkad"] },
                 { icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />, title: "Phone", lines: ["+91 9061 237 333", "+91 9333 049 125"] },
-                { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, title: "Email", lines: ["support@fabulouzz.com", "info@fabulouzz.com"] }
+                { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, title: "Email", lines: ["info@fabulouzz.com"] }
               ].map((item, idx) => (
                 <Reveal key={idx} delay={idx * 150} direction="left">
                   <div className="flex items-start gap-3 md:gap-5 group">

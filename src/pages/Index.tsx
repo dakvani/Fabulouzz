@@ -9,6 +9,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 import ParallaxSection from '@/components/ParallaxSection';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +47,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
