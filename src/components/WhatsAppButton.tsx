@@ -1,9 +1,10 @@
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import React from "react";
+import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton: React.FC = () => {
   // Using wa.me link format with pre-filled message
-  const whatsappUrl = 'https://wa.me/919061237333?text=Hello%21%20I%20would%20like%20to%20inquire%20about%20your%20services.';
+  const whatsappUrl =
+    "https://wa.me/919061239333?text=Hello%21%20I%20would%20like%20to%20inquire%20about%20your%20services.";
 
   return (
     <a
@@ -16,7 +17,7 @@ const WhatsAppButton: React.FC = () => {
       <div className="relative">
         {/* Pulse ring animation */}
         <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-25"></div>
-        
+
         {/* Button */}
         <div className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#25D366]/40 transform hover:scale-110 transition-all duration-300 cursor-pointer">
           <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-white fill-white" />
