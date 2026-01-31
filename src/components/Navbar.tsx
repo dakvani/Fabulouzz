@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
@@ -15,7 +14,6 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     { name: 'Solutions', href: '#solutions' },
     { name: 'Sectors', href: '#sectors' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Events', href: '/events' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -35,25 +33,14 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
         <div className="hidden md:flex space-x-1 items-center">
           {navLinks.map((link) => (
-            link.href.startsWith('/') ? (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
-              >
-                <span className="relative z-10">{link.name}</span>
-                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
-              </Link>
-            ) : (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
-              >
-                <span className="relative z-10">{link.name}</span>
-                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
-              </a>
-            )
+            <a
+              key={link.name}
+              href={link.href}
+              className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
+            >
+              <span className="relative z-10">{link.name}</span>
+              <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
+            </a>
           ))}
           <a
             href="#contact"
@@ -73,27 +60,15 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         <div className={`fixed inset-x-0 top-0 h-[100dvh] pt-32 pb-10 px-6 bg-background/95 backdrop-blur-3xl shadow-2xl transition-all duration-500 ease-out md:hidden ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'} -z-10`}>
           <div className="flex flex-col items-center space-y-6 h-full justify-center">
             {navLinks.map((link, idx) => (
-              link.href.startsWith('/') ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all"
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all"
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
-                  {link.name}
-                </a>
-              )
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all"
+                style={{ transitionDelay: `${idx * 50}ms` }}
+              >
+                {link.name}
+              </a>
             ))}
             <a
               href="#contact"
