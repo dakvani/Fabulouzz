@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
@@ -42,6 +43,17 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
             </a>
           ))}
+          {/* Special animated Events link */}
+          <Link
+            to="/events"
+            className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-1.5 bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent font-extrabold">
+              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+              Events
+            </span>
+            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
+          </Link>
           <a
             href="#contact"
             className="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
@@ -70,6 +82,17 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 {link.name}
               </a>
             ))}
+            {/* Special animated Events link for mobile */}
+            <Link
+              to="/events"
+              onClick={() => setIsOpen(false)}
+              className="text-2xl font-bold transform hover:scale-105 transition-all flex items-center gap-2"
+            >
+              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+              <span className="bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                Events
+              </span>
+            </Link>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
