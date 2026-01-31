@@ -82,7 +82,7 @@ const Events: React.FC = () => {
       {/* Main Layout - Side Video + Content */}
       <div className="absolute inset-0 flex">
         {/* Side Video Panel */}
-        <div className="hidden lg:block w-80 xl:w-96 h-full relative overflow-hidden border-r border-primary/20">
+        <div className="hidden lg:block w-[400px] xl:w-[480px] 2xl:w-[560px] h-full relative overflow-hidden border-r border-primary/20">
           {/* Glowing border effect */}
           <div className="absolute inset-0 z-10 pointer-events-none">
             <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-primary/60 via-primary/20 to-primary/60 animate-pulse" />
