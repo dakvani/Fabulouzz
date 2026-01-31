@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import eventsVideo from '@/assets/events-video.mp4';
+import eventsMiddleVideo from '@/assets/events-middle-video.mp4';
 import eventsSideVideo from '@/assets/events-side-video.mp4';
 import { PROJECTS } from '@/data/sectors';
 
@@ -146,7 +147,7 @@ const Events: React.FC = () => {
                 <div className="absolute inset-[3px] rounded-lg overflow-hidden">
                   <video
                     ref={videoRefs[colIndex]}
-                    src={eventsVideo}
+                    src={colIndex === 1 ? eventsMiddleVideo : eventsVideo}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     muted
                     loop
