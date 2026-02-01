@@ -99,7 +99,11 @@ export const SECTORS: Sector[] = [
 ];
 
 export const PROJECTS = [
-  "Media One TV",
+  "V Care Medicals",
+  "MediaOne TV",
+  "Cooperative Spinning Mills",
+  "Minar TMT",
+  "Palakkad Surgical PVT LTD",
   "Govt. Polytechnic College Palakkad",
   "IPT&GPT Shornur",
   "State Election Commission",
