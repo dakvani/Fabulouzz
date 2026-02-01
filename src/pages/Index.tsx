@@ -10,7 +10,6 @@ import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 import ParallaxSection from '@/components/ParallaxSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import SaudiPopup from '@/components/SaudiPopup';
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +48,6 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
-      <SaudiPopup />
     </div>
   );
 };
