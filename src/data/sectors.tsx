@@ -11,6 +11,18 @@ import {
   Tv, Factory, Hammer
 } from 'lucide-react';
 
+// Import client logos
+import keralaEducationLogo from '@/assets/clients/kerala-education.jfif';
+import keralaIndustriesLogo from '@/assets/clients/kerala-industries.jpg';
+import kalolsavamLogo from '@/assets/clients/kalolsavam.png';
+import mediaoneLogo from '@/assets/clients/mediaone.png';
+import minarTmtLogo from '@/assets/clients/minar-tmt.jpg';
+import palakkadMunicipalityLogo from '@/assets/clients/palakkad-municipality.jpg';
+import palakkadSurgicalLogo from '@/assets/clients/palakkad-surgical.jpg';
+import pkmHospitalLogo from '@/assets/clients/pkm-hospital.png';
+import stateElectionLogo from '@/assets/clients/state-election.avif';
+import vcareLogo from '@/assets/clients/vcare.jfif';
+
 export interface Sector {
   name: string;
   renderScene: () => React.ReactNode;
@@ -99,15 +111,15 @@ export const SECTORS: Sector[] = [
   }
 ];
 
-// Major clients with brand icons (top tier)
+// Major clients with brand logos
 export interface Project {
   name: string;
   icon?: React.ReactNode;
-  logo?: string; // URL to logo image
+  logo?: string;
   isMajor?: boolean;
 }
 
-// Shuffles array using Fisher-Yates algorithm with seeded random
+// Shuffles array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -118,32 +130,32 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 const PROJECTS_DATA: Project[] = [
-  // Major clients (will be highlighted)
-  { name: "State Election Commission", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Education Department Kerala", icon: <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Industries Department Kerala", icon: <Building className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Municipality Palakkad", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "V Care Medicals", icon: <HeartPulse className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "PKM Hospital", icon: <Stethoscope className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "MediaOne TV", icon: <Tv className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  { name: "Minar TMT", icon: <Hammer className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  // Major clients with logos
+  { name: "State Election Commission", logo: stateElectionLogo, isMajor: true },
+  { name: "Education Department Kerala", logo: keralaEducationLogo, isMajor: true },
+  { name: "Industries Department Kerala", logo: keralaIndustriesLogo, isMajor: true },
+  { name: "Municipality Palakkad", logo: palakkadMunicipalityLogo, isMajor: true },
+  { name: "V Care Medicals", logo: vcareLogo, isMajor: true },
+  { name: "PKM Hospital", logo: pkmHospitalLogo, isMajor: true },
+  { name: "MediaOne TV", logo: mediaoneLogo, isMajor: true },
+  { name: "Minar TMT", logo: minarTmtLogo, isMajor: true },
+  { name: "Palakkad Surgical PVT LTD", logo: palakkadSurgicalLogo, isMajor: true },
+  { name: "State School Kalolsavam", logo: kalolsavamLogo, isMajor: true },
   
-  // Other projects
+  // Other projects (icons only)
+  { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" /> },
+  { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" /> },
   { name: "Govt. Polytechnic College Palakkad" },
   { name: "IPT&GPT Shornur" },
   { name: "Mount Seena Group Of Institutions" },
   { name: "Technical Highschools Kerala" },
   { name: "Springs International School" },
-  { name: "Palakkad Surgical PVT LTD" },
   { name: "Nanma Medical Centre" },
   { name: "Pinnacle Nissan" },
   { name: "Alankar Metals" },
   { name: "Negros Tirupur" },
   { name: "JR Backers Coimbatore" },
   { name: "Yashoram Jewelers" },
-  { name: "State School Kalolsavam" },
   { name: "Craft Mela" },
   { name: "Peoples Foundation" },
   { name: "Pirayiri Grama Panchayath" }
