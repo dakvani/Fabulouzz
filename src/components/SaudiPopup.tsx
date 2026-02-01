@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { X, Camera } from 'lucide-react';
+import { X, Smile } from 'lucide-react';
 
 const SaudiPopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
-    // Show popup after a short delay
     const timer = setTimeout(() => setIsVisible(true), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -26,7 +25,7 @@ const SaudiPopup: React.FC = () => {
     >
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/80 backdrop-blur-md"
         onClick={handleClose}
       />
 
@@ -36,28 +35,39 @@ const SaudiPopup: React.FC = () => {
           isClosing ? 'scale-90 opacity-0' : 'scale-100 opacity-100'
         }`}
       >
-        {/* Saudi Flag Background - Animated */}
+        {/* Saudi Flag Background - Enhanced */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Green background */}
-          <div className="absolute inset-0 bg-[#006C35]" />
+          {/* Base green gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#006C35] via-[#004d27] to-[#003d1f]" />
           
           {/* Flag wave animation layers */}
-          <div className="absolute inset-0 animate-flag-wave opacity-30">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute inset-0 animate-flag-wave">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
           </div>
-          <div className="absolute inset-0 animate-flag-wave-slow opacity-20">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="absolute inset-0 animate-flag-wave-slow">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00a651]/30 to-transparent" />
           </div>
           
-          {/* Shahada and Sword - Stylized */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-20">
-            <div className="text-white text-6xl font-arabic leading-none tracking-wider">
+          {/* Shahada Text - Arabic Calligraphy Style */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center opacity-25">
+            <div className="text-white text-4xl sm:text-5xl font-bold leading-none tracking-wider" style={{ fontFamily: 'serif' }}>
               لا إله إلا الله
+            </div>
+            <div className="text-white text-2xl sm:text-3xl font-bold mt-1" style={{ fontFamily: 'serif' }}>
+              محمد رسول الله
             </div>
           </div>
           
-          {/* Decorative sword line */}
-          <div className="absolute bottom-1/3 left-1/4 right-1/4 h-0.5 bg-white/30 transform -rotate-2" />
+          {/* Stylized Sword */}
+          <div className="absolute bottom-[35%] left-[15%] right-[15%] h-1 bg-white/40 transform -rotate-1 rounded-full shadow-lg" />
+          <div className="absolute bottom-[34%] left-[12%] w-4 h-4 bg-white/40 rounded-full" />
+          
+          {/* Decorative patterns */}
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-white/20 via-transparent to-white/20" />
+          <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-white/20 via-transparent to-white/20" />
+          
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
         </div>
 
         {/* Content Overlay */}
@@ -70,28 +80,25 @@ const SaudiPopup: React.FC = () => {
             <X size={20} />
           </button>
 
-          {/* CCTV Camera Element */}
+          {/* Yellow Smile Icon */}
           <div className="relative mb-6">
             <div className="inline-flex items-center justify-center">
-              {/* Camera Mount */}
-              <div className="relative">
-                {/* Camera Body */}
-                <div className="relative animate-camera-scan">
-                  <Camera 
-                    size={64} 
-                    className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
-                    strokeWidth={1.5}
-                  />
-                  {/* Recording indicator */}
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
-                </div>
+              <div className="relative animate-bounce-slow">
+                {/* Glow effect behind smile */}
+                <div className="absolute inset-0 bg-yellow-400/50 rounded-full blur-xl scale-150 animate-pulse" />
                 
-                {/* Scan lines effect */}
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-24 overflow-hidden opacity-40">
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-transparent animate-scan-lines" 
-                    style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)' }}
-                  />
-                </div>
+                {/* Smile Icon */}
+                <Smile 
+                  size={72} 
+                  className="relative text-yellow-400 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)]" 
+                  strokeWidth={2}
+                  fill="rgba(250,204,21,0.2)"
+                />
+                
+                {/* Sparkles around smile */}
+                <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-300 rounded-full animate-ping" />
+                <div className="absolute -bottom-1 -left-2 w-2 h-2 bg-yellow-200 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute top-1/2 -right-4 w-2 h-2 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
               </div>
             </div>
           </div>
