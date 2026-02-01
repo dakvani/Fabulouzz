@@ -31,14 +31,19 @@ const Projects: React.FC = () => {
                 <div
                   key={idx}
                   className={`
-                    px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full text-[10px] sm:text-xs md:text-sm lg:text-base font-bold transition-all duration-700 ease-in-out border cursor-default backdrop-blur-sm
-                    ${isActive
-                      ? 'bg-primary text-primary-foreground border-primary shadow-xl shadow-primary/40 scale-105 md:scale-110 z-10'
-                      : 'bg-secondary/50 text-muted-foreground border-border hover:border-primary/30 hover:text-foreground hover:bg-secondary'
+                    px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full text-[10px] sm:text-xs md:text-sm lg:text-base font-bold transition-all duration-700 ease-in-out border cursor-default backdrop-blur-sm flex items-center gap-1.5 sm:gap-2
+                    ${project.isMajor
+                      ? isActive
+                        ? 'bg-primary text-primary-foreground border-primary shadow-xl shadow-primary/40 scale-105 md:scale-110 z-10'
+                        : 'bg-primary/20 text-foreground border-primary/50 hover:border-primary hover:bg-primary/30'
+                      : isActive
+                        ? 'bg-primary text-primary-foreground border-primary shadow-xl shadow-primary/40 scale-105 md:scale-110 z-10'
+                        : 'bg-secondary/50 text-muted-foreground border-border hover:border-primary/30 hover:text-foreground hover:bg-secondary'
                     }
                   `}
                 >
-                  {project}
+                  {project.icon && <span className="text-current">{project.icon}</span>}
+                  {project.name}
                 </div>
               );
             })}

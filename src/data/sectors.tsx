@@ -7,7 +7,8 @@ import {
   Building, Wifi, Bot,
   ShoppingBag, ShoppingCart, Tag,
   Bus, Plane,
-  Stethoscope, HeartPulse, Activity
+  Stethoscope, HeartPulse, Activity,
+  Tv, Factory, Hammer
 } from 'lucide-react';
 
 export interface Sector {
@@ -98,33 +99,53 @@ export const SECTORS: Sector[] = [
   }
 ];
 
-export const PROJECTS = [
-  "V Care Medicals",
-  "MediaOne TV",
-  "Cooperative Spinning Mills",
-  "Minar TMT",
-  "Palakkad Surgical PVT LTD",
-  "Govt. Polytechnic College Palakkad",
-  "IPT&GPT Shornur",
-  "State Election Commission",
-  "Grand Hyper",
-  "Mount Seena Group Of Institutions",
-  "Technical Highschools Kerala",
-  "Industries Department Kerala",
-  "Education Department Kerala",
-  "Peoples Foundation",
-  "State School Kalolsavam",
-  "Craft Mela",
-  "Pinnacle Nissan",
-  "PKM Hospital",
-  "Nanma Medical Centre",
-  "Springs International School",
-  "Alankar Metals",
-  "Pirayiri Grama Panchayath",
-  "Municipality Palakkad",
-  "Negros Tirupur",
-  "JR Backers Coimbatore",
-  "Yashoram Jewelers"
+// Major clients with brand icons (top tier)
+export interface Project {
+  name: string;
+  icon?: React.ReactNode;
+  isMajor?: boolean;
+}
+
+export const PROJECTS: Project[] = [
+  // Tier 1 - Major Government/Institutional
+  { name: "State Election Commission", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "Education Department Kerala", icon: <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "Industries Department Kerala", icon: <Building className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "Municipality Palakkad", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  
+  // Tier 2 - Major Healthcare & Media
+  { name: "V Care Medicals", icon: <HeartPulse className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "PKM Hospital", icon: <Stethoscope className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "MediaOne TV", icon: <Tv className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  
+  // Tier 3 - Major Industrial & Education
+  { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  { name: "Minar TMT", icon: <Hammer className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
+  
+  // Education Institutions
+  { name: "Govt. Polytechnic College Palakkad" },
+  { name: "IPT&GPT Shornur" },
+  { name: "Mount Seena Group Of Institutions" },
+  { name: "Technical Highschools Kerala" },
+  { name: "Springs International School" },
+  
+  // Healthcare
+  { name: "Palakkad Surgical PVT LTD" },
+  { name: "Nanma Medical Centre" },
+  
+  // Retail & Business
+  { name: "Pinnacle Nissan" },
+  { name: "Alankar Metals" },
+  { name: "Negros Tirupur" },
+  { name: "JR Backers Coimbatore" },
+  { name: "Yashoram Jewelers" },
+  
+  // Events & Community
+  { name: "State School Kalolsavam" },
+  { name: "Craft Mela" },
+  { name: "Peoples Foundation" },
+  { name: "Pirayiri Grama Panchayath" }
 ];
 
 export const STATS = [
