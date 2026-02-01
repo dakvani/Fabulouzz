@@ -103,50 +103,54 @@ export const SECTORS: Sector[] = [
 export interface Project {
   name: string;
   icon?: React.ReactNode;
+  logo?: string; // URL to logo image
   isMajor?: boolean;
 }
 
-export const PROJECTS: Project[] = [
-  // Tier 1 - Major Government/Institutional
+// Shuffles array using Fisher-Yates algorithm with seeded random
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const PROJECTS_DATA: Project[] = [
+  // Major clients (will be highlighted)
   { name: "State Election Commission", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "Education Department Kerala", icon: <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "Industries Department Kerala", icon: <Building className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "Municipality Palakkad", icon: <Landmark className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  
-  // Tier 2 - Major Healthcare & Media
   { name: "V Care Medicals", icon: <HeartPulse className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "PKM Hospital", icon: <Stethoscope className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "MediaOne TV", icon: <Tv className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
-  
-  // Tier 3 - Major Industrial & Education
   { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   { name: "Minar TMT", icon: <Hammer className="w-3 h-3 sm:w-4 sm:h-4" />, isMajor: true },
   
-  // Education Institutions
+  // Other projects
   { name: "Govt. Polytechnic College Palakkad" },
   { name: "IPT&GPT Shornur" },
   { name: "Mount Seena Group Of Institutions" },
   { name: "Technical Highschools Kerala" },
   { name: "Springs International School" },
-  
-  // Healthcare
   { name: "Palakkad Surgical PVT LTD" },
   { name: "Nanma Medical Centre" },
-  
-  // Retail & Business
   { name: "Pinnacle Nissan" },
   { name: "Alankar Metals" },
   { name: "Negros Tirupur" },
   { name: "JR Backers Coimbatore" },
   { name: "Yashoram Jewelers" },
-  
-  // Events & Community
   { name: "State School Kalolsavam" },
   { name: "Craft Mela" },
   { name: "Peoples Foundation" },
   { name: "Pirayiri Grama Panchayath" }
 ];
+
+// Export shuffled array
+export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA);
 
 export const STATS = [
   { label: 'Years Experience', value: 12, suffix: '+' },
