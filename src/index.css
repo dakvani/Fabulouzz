@@ -220,6 +220,52 @@
   50% { transform: translateY(-8px); }
 }
 
+@keyframes flag-wave {
+  0%, 100% { transform: translateX(-5%) skewX(-2deg); }
+  50% { transform: translateX(5%) skewX(2deg); }
+}
+
+@keyframes camera-scan {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes scan-lines {
+  0% { opacity: 0.4; transform: translateY(-100%); }
+  100% { opacity: 0; transform: translateY(100%); }
+}
+
+@keyframes bounce-letter {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { transform: translateY(5px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+  50% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px hsl(var(--primary) / 0.5); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-simple {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes expand-right {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes expand-left {
+  from { transform: scaleX(0); transform-origin: right; }
+  to { transform: scaleX(1); transform-origin: right; }
+}
+
 @layer utilities {
   .animate-blob {
     animation: blob 15s infinite;
@@ -287,6 +333,41 @@
   .animate-bounce-slow {
     animation: bounce-slow 2s ease-in-out infinite;
   }
+  
+  /* Saudi Popup Animations */
+  .animate-flag-wave {
+    animation: flag-wave 3s ease-in-out infinite;
+  }
+  .animate-flag-wave-slow {
+    animation: flag-wave 5s ease-in-out infinite reverse;
+  }
+  .animate-camera-scan {
+    animation: camera-scan 4s ease-in-out infinite;
+  }
+  .animate-scan-lines {
+    animation: scan-lines 2s linear infinite;
+  }
+  .animate-bounce-letter {
+    animation: bounce-letter 1s ease-out forwards;
+  }
+  .animate-text-glow {
+    animation: text-glow 2s ease-in-out infinite;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-fade-in {
+    animation: fade-in-simple 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-expand-right {
+    animation: expand-right 0.8s ease-out forwards;
+  }
+  .animate-expand-left {
+    animation: expand-left 0.8s ease-out forwards;
+  }
+  
   .font-brand {
     font-family: 'Michroma', sans-serif;
   }
