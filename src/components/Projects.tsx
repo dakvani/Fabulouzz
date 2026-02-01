@@ -42,7 +42,15 @@ const Projects: React.FC = () => {
                     }
                   `}
                 >
-                  {project.icon && <span className="text-current">{project.icon}</span>}
+                  {project.logo ? (
+                    <img 
+                      src={project.logo} 
+                      alt={project.name} 
+                      className="h-4 sm:h-5 md:h-6 w-auto object-contain rounded-sm"
+                    />
+                  ) : project.icon ? (
+                    <span className="text-current">{project.icon}</span>
+                  ) : null}
                   {project.name}
                 </div>
               );

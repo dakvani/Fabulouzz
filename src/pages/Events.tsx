@@ -131,10 +131,18 @@ const Events: React.FC = () => {
                           : 'bg-card/60 text-muted-foreground border-border hover:border-primary/30 hover:text-foreground hover:bg-card'
                       }
                     `}
-                  >
-                    {project.icon && <span className="text-current">{project.icon}</span>}
-                    {project.name}
-                  </div>
+                    >
+                      {project.logo ? (
+                        <img 
+                          src={project.logo} 
+                          alt={project.name} 
+                          className="h-4 sm:h-5 md:h-6 w-auto object-contain rounded-sm"
+                        />
+                      ) : project.icon ? (
+                        <span className="text-current">{project.icon}</span>
+                      ) : null}
+                      {project.name}
+                    </div>
                 );
               })}
             </div>
