@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import saudiFlag from '@/assets/saudi-flag.mp4';
+import BrandLogo from './BrandLogo';
 
 const WelcomePopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -77,9 +78,14 @@ const WelcomePopup: React.FC = () => {
           <div className="absolute top-4 left-4 w-16 h-16 md:w-24 md:h-24 border-l-2 border-t-2 border-emerald-500/40 rounded-tl-xl" />
           <div className="absolute bottom-4 right-4 w-16 h-16 md:w-24 md:h-24 border-r-2 border-b-2 border-emerald-500/40 rounded-br-xl" />
           
+          {/* Brand Logo */}
+          <div className="mb-4 md:mb-6 flex justify-center">
+            <BrandLogo variant="dark" align="start" />
+          </div>
+
           {/* Animated greeting */}
           <div className="mb-4 md:mb-6">
-            <span className="inline-block px-4 py-1.5 md:px-6 md:py-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full text-emerald-400 text-xs md:text-sm font-semibold tracking-wider uppercase animate-pulse">
+            <span className="inline-block px-4 py-1.5 md:px-6 md:py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary text-xs md:text-sm font-semibold tracking-wider uppercase animate-pulse">
               ✨ Exciting News ✨
             </span>
           </div>
