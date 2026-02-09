@@ -12,8 +12,8 @@ const Solutions: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionTitle subtitle="What We Do" title="Comprehensive Tech Solutions" />
 
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
-          <div className="lg:w-2/5 grid grid-cols-2 gap-2 md:gap-3 auto-rows-min content-start">
+        <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-10">
+          <div className="lg:w-2/5 grid grid-cols-2 gap-2 md:gap-3 auto-rows-min content-start self-stretch">
             {SOLUTIONS.map((sol, index) => (
               <Reveal key={sol.id} delay={index * 50} direction="left" className="w-full">
                 <button
@@ -38,7 +38,7 @@ const Solutions: React.FC = () => {
 
           <div className="lg:w-3/5">
             <Reveal direction="right" delay={200}>
-              <div className="bg-card/60 backdrop-blur-xl rounded-2xl p-5 sm:p-8 md:p-12 border border-border shadow-2xl h-full transition-all duration-500 relative overflow-hidden">
+              <div className="bg-card/60 backdrop-blur-xl rounded-2xl p-5 sm:p-8 md:p-10 border border-border shadow-2xl transition-all duration-500 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute -top-20 -right-20 w-48 md:w-64 h-48 md:h-64 bg-primary/10 rounded-full blur-3xl"></div>
 
                 {SOLUTIONS.map((sol) => (
@@ -58,7 +58,7 @@ const Solutions: React.FC = () => {
                         <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary"></span>
                         Available Services
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 flex-1">
                         {sol.items.map((item, idx) => (
                           <div
                             key={idx}
