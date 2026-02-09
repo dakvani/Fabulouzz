@@ -50,13 +50,22 @@ const SectorDetail: React.FC = () => {
             </Link>
           </Reveal>
 
-          {/* Hero */}
+          {/* Hero Image */}
           <Reveal direction="up">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary">
-                {sector.icon}
+            <div className="relative rounded-2xl overflow-hidden mb-8 md:mb-12 border border-border shadow-xl shadow-black/20">
+              <img
+                src={sector.image}
+                alt={`${sector.name} sector illustration`}
+                className="w-full h-48 md:h-72 object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 flex items-end gap-4">
+                <div className="p-3 rounded-2xl bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">
+                  {sector.icon}
+                </div>
+                <h1 className="text-responsive-hero font-bold text-foreground drop-shadow-lg">{sector.name}</h1>
               </div>
-              <h1 className="text-responsive-hero font-bold text-foreground">{sector.name}</h1>
             </div>
           </Reveal>
 
