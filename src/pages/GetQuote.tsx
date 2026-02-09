@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Globe, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Send, Building2, PhoneCall } from 'lucide-react';
 import { SOLUTIONS } from '@/data/solutions';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,35 +12,35 @@ const offices = [
     country: 'India',
     flag: '🇮🇳',
     details: [
-      { icon: <MapPin className="w-5 h-5 md:w-6 md:h-6" />, title: "Office", lines: ["Fabulouzz Technologies", "Malabar Tower, Near Stadium Bus Stand,", "CBE Main Road, Palakkad", "Kerala, India"] },
-      { icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />, title: "Phone", lines: ["+91 90 6123 9 333"] },
-      { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, title: "Email", lines: ["info@fabulouzz.com"] },
-      { icon: <Globe className="w-5 h-5 md:w-6 md:h-6" />, title: "Web", lines: ["www.fabulouzz.com"] },
+      { icon: <MapPin className="w-5 h-5" />, title: "Office", lines: ["Fabulouzz Technologies", "Malabar Tower, Near Stadium Bus Stand,", "CBE Main Road, Palakkad", "Kerala, India"] },
+      { icon: <Phone className="w-5 h-5" />, title: "Phone", lines: ["+91 90 6123 9 333"] },
+      { icon: <Mail className="w-5 h-5" />, title: "Email", lines: ["info@fabulouzz.com"] },
+      { icon: <Globe className="w-5 h-5" />, title: "Web", lines: ["www.fabulouzz.com"] },
     ],
   },
   {
     country: 'Kingdom of Saudi Arabia',
     flag: '🇸🇦',
     details: [
-      { icon: <MapPin className="w-5 h-5 md:w-6 md:h-6" />, title: "Office", lines: ["Fabulouzz Technologies", "Al – Aqsa Business Park,", "Al – Rihab Dist,", "Jeddah, 23345, KSA"] },
-      { icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />, title: "Phone", lines: ["+966 50 2 918 573"] },
-      { icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />, title: "Email", lines: ["support@fabulouzz.com"] },
-      { icon: <Globe className="w-5 h-5 md:w-6 md:h-6" />, title: "Web", lines: ["www.fabulouzz.com"] },
+      { icon: <MapPin className="w-5 h-5" />, title: "Office", lines: ["Fabulouzz Technologies", "Al – Aqsa Business Park,", "Al – Rihab Dist,", "Jeddah, 23345, KSA"] },
+      { icon: <Phone className="w-5 h-5" />, title: "Phone", lines: ["+966 50 2 918 573"] },
+      { icon: <Mail className="w-5 h-5" />, title: "Email", lines: ["support@fabulouzz.com"] },
+      { icon: <Globe className="w-5 h-5" />, title: "Web", lines: ["www.fabulouzz.com"] },
     ],
   },
 ];
 
 const renderContactLine = (item: { title: string }, line: string, key: string) => {
   if (item.title === "Phone") {
-    return <a key={key} href={`tel:${line.replace(/\s+/g, '')}`} className="block text-sm md:text-base text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
+    return <a key={key} href={`tel:${line.replace(/\s+/g, '')}`} className="block text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
   }
   if (item.title === "Email") {
-    return <a key={key} href={`mailto:${line}`} className="block text-sm md:text-base text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
+    return <a key={key} href={`mailto:${line}`} className="block text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
   }
   if (item.title === "Web") {
-    return <a key={key} href={`https://${line}`} target="_blank" rel="noopener noreferrer" className="block text-sm md:text-base text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
+    return <a key={key} href={`https://${line}`} target="_blank" rel="noopener noreferrer" className="block text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 font-medium w-fit">{line}</a>;
   }
-  return <p key={key} className="text-sm md:text-base text-muted-foreground">{line}</p>;
+  return <p key={key} className="text-sm text-muted-foreground">{line}</p>;
 };
 
 const GetQuote: React.FC = () => {
@@ -65,7 +65,7 @@ const GetQuote: React.FC = () => {
     window.location.href = `mailto:info@fabulouzz.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
-  const inputClass = "w-full px-4 py-3 md:py-3.5 rounded-xl bg-background/50 border border-border text-foreground text-sm md:text-base focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all duration-300 placeholder-muted-foreground";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-background/50 border border-border text-foreground text-sm focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all duration-300 placeholder-muted-foreground";
 
   return (
     <div className="font-sans bg-background text-foreground selection:bg-primary/30 selection:text-foreground relative overflow-x-hidden subpixel-antialiased">
@@ -81,8 +81,12 @@ const GetQuote: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-12 md:mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
+                <PhoneCall className="w-4 h-4 text-primary" />
+                <span className="text-xs font-bold text-primary uppercase tracking-wider">Get In Touch</span>
+              </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Get In <span className="text-primary">Touch</span>
+                Let's Build <span className="text-primary">Together</span>
               </h1>
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
                 Ready to upgrade your infrastructure? Contact us for a free consultation and quote.
@@ -90,75 +94,97 @@ const GetQuote: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* Office Addresses */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
-            {offices.map((office, officeIdx) => (
-              <Reveal key={officeIdx} delay={officeIdx * 150} direction={officeIdx === 0 ? 'left' : 'right'}>
-                <div className="p-6 md:p-8 rounded-2xl bg-card/80 backdrop-blur-xl border border-border shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
-                  <h3 className="text-base md:text-lg font-bold text-primary mb-5 flex items-center gap-2.5 uppercase tracking-wider">
-                    <span className="text-xl md:text-2xl">{office.flag}</span> {office.country}
-                  </h3>
-                  <div className="space-y-4">
-                    {office.details.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3 group">
-                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20 flex-shrink-0">
-                          {item.icon}
+          {/* Two Column: Addresses Left | Form Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+            
+            {/* Left: Addresses stacked */}
+            <div className="lg:col-span-2 space-y-8">
+              {offices.map((office, officeIdx) => (
+                <Reveal key={officeIdx} delay={officeIdx * 150} direction="left">
+                  <div className="p-6 rounded-2xl bg-card/60 backdrop-blur-xl border border-border hover:border-primary/30 transition-all duration-500 group">
+                    <h3 className="text-sm font-bold text-primary mb-4 flex items-center gap-2 uppercase tracking-wider">
+                      <span className="text-lg">{office.flag}</span> {office.country}
+                    </h3>
+                    <div className="space-y-3">
+                      {office.details.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <div className="p-2 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20 flex-shrink-0">
+                            {item.icon}
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-xs mb-0.5 text-foreground uppercase tracking-wider">{item.title}</h4>
+                            {item.lines.map((line, i) => renderContactLine(item, line, `${officeIdx}-${idx}-${i}`))}
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-bold text-sm mb-0.5 text-foreground">{item.title}</h4>
-                          {item.lines.map((line, i) => renderContactLine(item, line, `${officeIdx}-${idx}-${i}`))}
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
+                </Reveal>
+              ))}
+
+              {/* Decorative element */}
+              <Reveal delay={300} direction="left">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Building2 className="w-5 h-5 text-primary" />
+                    <h4 className="font-bold text-sm text-foreground">Why Choose Us?</h4>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    10+ years of experience delivering cutting-edge technology solutions across India and the Middle East.
+                  </p>
                 </div>
               </Reveal>
-            ))}
-          </div>
-
-          {/* Contact Form */}
-          <Reveal direction="up" delay={300}>
-            <div className="max-w-2xl mx-auto p-6 sm:p-8 md:p-10 rounded-2xl bg-card/80 backdrop-blur-xl border border-border shadow-xl">
-              <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
-              <form className="space-y-4 md:space-y-5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Your Name <span className="text-destructive">*</span></label>
-                    <input name="name" value={formData.name} onChange={handleChange} type="text" required className={inputClass} placeholder="John Doe" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Company</label>
-                    <input name="company" value={formData.company} onChange={handleChange} type="text" className={inputClass} placeholder="Your Company" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email <span className="text-destructive">*</span></label>
-                    <input name="email" value={formData.email} onChange={handleChange} type="email" required className={inputClass} placeholder="john@example.com" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Phone <span className="text-destructive">*</span></label>
-                    <input name="phone" value={formData.phone} onChange={handleChange} type="tel" required className={inputClass} placeholder="+91 98765 43210" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Service Interested In</label>
-                  <select name="service" value={formData.service} onChange={handleChange} className={inputClass}>
-                    {SOLUTIONS.map(s => <option key={s.id}>{s.title}</option>)}
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Message</label>
-                  <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className={`${inputClass} resize-none`} placeholder="Tell us about your requirements..." />
-                </div>
-                <button className="w-full py-3.5 md:py-4 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm md:text-base rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </button>
-              </form>
             </div>
-          </Reveal>
+
+            {/* Right: Contact Form */}
+            <div className="lg:col-span-3">
+              <Reveal direction="right" delay={200}>
+                <div className="p-6 sm:p-8 rounded-2xl bg-card/60 backdrop-blur-xl border border-border shadow-xl sticky top-32">
+                  <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
+                    <Send className="w-5 h-5 text-primary" />
+                    Send Us a Message
+                  </h2>
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Your Name <span className="text-destructive">*</span></label>
+                        <input name="name" value={formData.name} onChange={handleChange} type="text" required className={inputClass} placeholder="John Doe" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Company</label>
+                        <input name="company" value={formData.company} onChange={handleChange} type="text" className={inputClass} placeholder="Your Company" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Email <span className="text-destructive">*</span></label>
+                        <input name="email" value={formData.email} onChange={handleChange} type="email" required className={inputClass} placeholder="john@example.com" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Phone <span className="text-destructive">*</span></label>
+                        <input name="phone" value={formData.phone} onChange={handleChange} type="tel" required className={inputClass} placeholder="+91 98765 43210" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Service Interested In</label>
+                      <select name="service" value={formData.service} onChange={handleChange} className={inputClass}>
+                        {SOLUTIONS.map(s => <option key={s.id}>{s.title}</option>)}
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Message</label>
+                      <textarea name="message" value={formData.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Tell us about your requirements..." />
+                    </div>
+                    <button className="w-full py-3.5 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </main>
 

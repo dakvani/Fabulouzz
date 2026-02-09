@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             isActive ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
           }`}
         >
-          <div className="p-2 max-h-80 overflow-y-auto">
+          <div className="p-2">
             {config.items.map((item, idx) => (
               <Link
                 key={idx}
@@ -158,14 +158,6 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
           {dropdownKeys.map(renderDesktopDropdown)}
 
-          <Link
-            to="/#contact"
-            className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
-          >
-            <span className="relative z-10">Contact</span>
-            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
-          </Link>
-
           {/* Events link */}
           <Link
             to="/events"
@@ -199,10 +191,6 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </Link>
 
             {dropdownKeys.map(renderMobileDropdown)}
-
-            <Link to="/#contact" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all">
-              Contact
-            </Link>
 
             <Link
               to="/events"
