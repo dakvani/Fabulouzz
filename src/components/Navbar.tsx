@@ -170,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
       <nav
         className={`pointer-events-auto rounded-none md:rounded-full border-b md:border transition-all duration-700 ease-in-out flex justify-between items-center px-6 py-4 ${containerClasses}`}
       >
-        <Link to="/" className="z-50 relative group">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative group">
           <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
           <BrandLogo variant="dark" />
         </Link>
