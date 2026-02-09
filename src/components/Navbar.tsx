@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import { SECTOR_DETAILS } from '@/data/sectorDetails';
 import { SOLUTIONS } from '@/data/solutions';
-import { PROJECTS_DATA_INTERNAL } from '@/data/sectors';
+
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     timeoutRef.current = setTimeout(() => setOpenDropdown(null), 200);
   }, []);
 
-  const majorProjects = PROJECTS_DATA_INTERNAL.filter(p => p.isMajor);
+  
 
   const dropdowns: Record<DropdownKey, DropdownConfig> = {
     solutions: {
@@ -48,7 +48,10 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     projects: {
       label: 'Projects',
       anchorHref: '/projects',
-      items: majorProjects.map(p => ({ name: p.name, to: '/projects' })),
+      items: [
+        { name: '🇮🇳 India', to: '/projects?region=india' },
+        { name: '🇸🇦 Middle East', to: '/projects?region=middle-east' },
+      ],
     },
     sectors: {
       label: 'Sectors',

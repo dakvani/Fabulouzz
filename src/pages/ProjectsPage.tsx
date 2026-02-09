@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Award, Users, Phone, Building2, Star } from 'lucide-react';
-import { PROJECTS_DATA_SORTED } from '@/data/projects';
+import { PROJECTS_DATA_INTERNAL } from '@/data/sectors';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Reveal from '@/components/Reveal';
 
+type Region = 'india' | 'middle-east';
+
+const TABS: { key: Region; label: string; flag: string }[] = [
+  { key: 'india', label: 'India', flag: '🇮🇳' },
+  { key: 'middle-east', label: 'Middle East', flag: '🇸🇦' },
+];
+
 const ProjectsPage: React.FC = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const regionParam = searchParams.get('region') as Region | null;
+  const [activeRegion, setActiveRegion] = useState<Region>(regionParam === 'middle-east' ? 'middle-east' : 'india');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,8 +27,23 @@ const ProjectsPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const majorProjects = PROJECTS_DATA_SORTED.filter(p => p.isMajor);
-  const otherProjects = PROJECTS_DATA_SORTED.filter(p => !p.isMajor);
+  useEffect(() => {
+    if (regionParam === 'india' || regionParam === 'middle-east') {
+      setActiveRegion(regionParam);
+    }
+  }, [regionParam]);
+
+  const handleTabChange = (region: Region) => {
+    setActiveRegion(region);
+    setSearchParams({ region });
+  };
+
+  const regionProjects = useMemo(
+    () => PROJECTS_DATA_INTERNAL.filter(p => p.region === activeRegion),
+    [activeRegion]
+  );
+  const majorProjects = regionProjects.filter(p => p.isMajor);
+  const otherProjects = regionProjects.filter(p => !p.isMajor);
 
   return (
     <div className="font-sans bg-background text-foreground selection:bg-primary/30 relative overflow-x-hidden">
@@ -48,13 +73,35 @@ const ProjectsPage: React.FC = () => {
           </Reveal>
 
           <Reveal direction="up" delay={100}>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-12 md:mb-16">
-              We take pride in delivering world-class technology solutions across diverse industries. Here are some of our prestigious clients and projects.
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+              We take pride in delivering world-class technology solutions across diverse industries.
             </p>
           </Reveal>
 
+          {/* Region Tabs */}
+          <Reveal direction="up" delay={120}>
+            <div className="flex mb-10 md:mb-12">
+              <div className="inline-flex rounded-full bg-secondary/60 backdrop-blur-sm border border-border p-1 gap-1">
+                {TABS.map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => handleTabChange(tab.key)}
+                    className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 flex items-center gap-2 ${
+                      activeRegion === tab.key
+                        ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                    }`}
+                  >
+                    <span className="text-lg">{tab.flag}</span>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
           {/* Major Projects */}
-          <Reveal direction="up" delay={150}>
+          <Reveal direction="up" delay={150} key={`major-${activeRegion}`}>
             <div className="mb-12 md:mb-16">
               <div className="flex items-center gap-3 mb-6 md:mb-8">
                 <Star className="w-5 h-5 text-primary" />
@@ -72,9 +119,14 @@ const ProjectsPage: React.FC = () => {
                             <Building2 className="w-6 h-6" />
                           </div>
                         )}
-                        <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
-                          {project.name}
-                        </h3>
+                        <div>
+                          <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
+                            {project.name}
+                          </h3>
+                          {project.description && (
+                            <p className="text-xs text-muted-foreground mt-1">{project.description}</p>
+                          )}
+                        </div>
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     </div>
@@ -85,24 +137,26 @@ const ProjectsPage: React.FC = () => {
           </Reveal>
 
           {/* Other Projects */}
-          <Reveal direction="up" delay={200}>
-            <div className="mb-12 md:mb-16">
-              <div className="flex items-center gap-3 mb-6 md:mb-8">
-                <Award className="w-5 h-5 text-primary" />
-                <h2 className="text-xl md:text-2xl font-bold text-foreground">More Projects</h2>
+          {otherProjects.length > 0 && (
+            <Reveal direction="up" delay={200} key={`other-${activeRegion}`}>
+              <div className="mb-12 md:mb-16">
+                <div className="flex items-center gap-3 mb-6 md:mb-8">
+                  <Award className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground">More Projects</h2>
+                </div>
+                <div className="grid gap-3 md:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {otherProjects.map((project, idx) => (
+                    <Reveal key={idx} delay={idx * 50} direction="scale">
+                      <div className="rounded-xl bg-secondary/50 backdrop-blur-sm border border-border p-4 h-full flex items-center gap-3 hover:border-primary/30 transition-colors">
+                        {project.icon && <span className="text-primary shrink-0">{project.icon}</span>}
+                        <span className="text-sm font-medium text-foreground">{project.name}</span>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
               </div>
-              <div className="grid gap-3 md:gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {otherProjects.map((project, idx) => (
-                  <Reveal key={idx} delay={idx * 50} direction="scale">
-                    <div className="rounded-xl bg-secondary/50 backdrop-blur-sm border border-border p-4 h-full flex items-center gap-3 hover:border-primary/30 transition-colors">
-                      {project.icon && <span className="text-primary shrink-0">{project.icon}</span>}
-                      <span className="text-sm font-medium text-foreground">{project.name}</span>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          )}
 
           {/* Why Choose Us */}
           <Reveal direction="up" delay={250}>
@@ -125,7 +179,6 @@ const ProjectsPage: React.FC = () => {
               </div>
             </div>
           </Reveal>
-
         </div>
       </main>
 
