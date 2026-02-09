@@ -51,7 +51,9 @@ const Footer: React.FC = () => {
           {/* Column 1: Brand + Quick Links */}
           <div className="lg:col-span-3">
             <Reveal direction="left">
-              <BrandLogo variant="dark" align="start" />
+              <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <BrandLogo variant="dark" align="start" />
+              </Link>
               <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs">
                 Modern technologies for an innovative lifestyle. Your trusted partner in security, automation, and sustainable energy solutions.
               </p>
