@@ -126,19 +126,6 @@ const ProjectsPage: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* CTA */}
-          <Reveal direction="up" delay={300}>
-            <div className="text-center rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/50 to-primary/10 border border-primary/20 p-8 md:p-12 mt-12">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Ready to Start Your Project?</h3>
-              <p className="text-muted-foreground mb-6 max-w-md mx-auto text-sm md:text-base">Let us build the perfect technology infrastructure for your needs.</p>
-              <Link
-                to="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
-              >
-                Get a Quote
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </main>
 
