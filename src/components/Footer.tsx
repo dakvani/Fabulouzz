@@ -19,9 +19,9 @@ const Footer: React.FC = () => (
             <div>
               <h5 className="text-foreground font-bold text-sm md:text-base mb-2 md:mb-3">Quick Links</h5>
               <ul className="space-y-1 md:space-y-2 text-xs sm:text-sm">
-                <li><a href="#home" className="hover:text-primary transition-colors">Home</a></li>
-                <li><a href="#solutions" className="hover:text-primary transition-colors">Solutions</a></li>
-                <li><a href="#projects" className="hover:text-primary transition-colors">Projects</a></li>
+                <li><a href="/#home" className="hover:text-primary transition-colors">Home</a></li>
+                <li><a href="/#solutions" className="hover:text-primary transition-colors">Solutions</a></li>
+                <li><a href="/#projects" className="hover:text-primary transition-colors">Projects</a></li>
               </ul>
             </div>
             <div>

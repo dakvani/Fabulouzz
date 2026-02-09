@@ -73,17 +73,22 @@ const SolutionDetail: React.FC = () => {
                 <Wrench className="w-5 h-5 text-primary" />
                 <h2 className="text-xl md:text-2xl font-bold text-foreground">What We Offer</h2>
               </div>
-              <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-4 md:gap-6 sm:grid-cols-2">
                 {solution.items.map((item, idx) => (
                   <Reveal key={idx} delay={idx * 80} direction="up">
                     <div className="group relative overflow-hidden rounded-2xl bg-secondary/50 backdrop-blur-sm border border-border hover:border-primary/50 p-5 md:p-6 transition-all duration-500 hover:bg-secondary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 h-full">
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-start gap-4">
                         <div className={`p-2 rounded-xl bg-primary/10 text-primary shrink-0 ${item.anim}`}>
                           {item.icon}
                         </div>
-                        <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
-                          {item.name}
-                        </h3>
+                        <div>
+                          <h3 className="font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                            {item.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     </div>
