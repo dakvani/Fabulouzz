@@ -6,7 +6,9 @@ import {
   Network, LayoutGrid, KeyRound, ArrowUpDown, UserCheck, Clock,
   Mic2, Speaker, Users2, MonitorPlay, LayoutDashboard,
   Settings2, ArrowDown, Lightbulb, AlignJustify, Square,
-  Factory, Lamp, BatteryCharging, Globe, PhoneCall, Server, Share2
+  Factory, Lamp, BatteryCharging, Globe, PhoneCall, Server, Share2,
+  Cable, Megaphone, Presentation, Tv, Phone, NetworkIcon, ServerCog,
+  ShieldAlert, Cloud, ClipboardList
 } from 'lucide-react';
 
 export interface SolutionItem {
@@ -228,6 +230,199 @@ export const SOLUTIONS: Solution[] = [
       { name: 'System Integration', icon: <Cpu size={20} />, anim: 'group-hover:animate-spin-slow', description: 'End-to-end IT system design, assembly, and deployment including servers, workstations, and peripherals.' },
       { name: 'LAN / WAN', icon: <Globe size={20} />, anim: 'group-hover:rotate-180 transition-transform duration-700', description: 'Structured cabling and network infrastructure with fiber optics, managed switches, and Wi-Fi solutions.' },
       { name: 'IPBX / EPBX', icon: <PhoneCall size={20} />, anim: 'group-hover:animate-wiggle', description: 'IP-based telephony systems with auto-attendant, call recording, and unified communications features.' }
+    ]
+  },
+  {
+    id: 'structured-cabling',
+    title: 'Structured Cabling Systems',
+    icon: <Cable size={32} />,
+    description: 'High-performance physical network infrastructure for voice, data, and video.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] border border-teal-500/20 rounded-full animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-teal-500/30 shadow-[0_0_50px_rgba(20,184,166,0.3)]">
+          <Cable className="w-16 h-16 md:w-24 md:h-24 text-teal-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Copper Cabling', icon: <Cable size={20} />, anim: 'group-hover:animate-pulse', description: 'Cat6/Cat6A structured copper cabling for high-speed data transmission across floors and buildings.' },
+      { name: 'Fiber Optic Cabling', icon: <Network size={20} />, anim: 'group-hover:animate-bounce', description: 'Single-mode and multi-mode fiber optic backbone cabling for ultra-high bandwidth requirements.' },
+      { name: 'Patch Panels & Racks', icon: <Server size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Professional rack mounting, patch panel termination, and cable management solutions.' }
+    ]
+  },
+  {
+    id: 'pa-va',
+    title: 'PA & Voice Alarm Systems',
+    icon: <Megaphone size={32} />,
+    description: 'Announcements, BGM, and emergency voice evacuation systems.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-32 h-32 md:w-40 md:h-40 border border-red-500/30 rounded-full animate-[ping_2s_linear_infinite]"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-red-500/30 shadow-[0_0_50px_rgba(239,68,68,0.3)]">
+          <Megaphone className="w-16 h-16 md:w-24 md:h-24 text-red-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Public Address', icon: <Speaker size={20} />, anim: 'group-hover:animate-bounce', description: 'Zoned PA systems for routine announcements and paging across large facilities.' },
+      { name: 'Background Music', icon: <Mic2 size={20} />, anim: 'group-hover:animate-pulse', description: 'Ambient BGM distribution systems for hospitality, retail, and commercial spaces.' },
+      { name: 'Voice Evacuation', icon: <BellRing size={20} />, anim: 'group-hover:animate-wiggle', description: 'EN 54-compliant voice alarm systems for automated emergency evacuation messaging.' }
+    ]
+  },
+  {
+    id: 'av-systems',
+    title: 'Audio-Visual Systems',
+    icon: <Presentation size={32} />,
+    description: 'Conference, signage, video wall, and entertainment AV solutions.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] border border-violet-500/20 rounded-xl rotate-12 animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-violet-500/30 shadow-[0_0_50px_rgba(139,92,246,0.3)]">
+          <Presentation className="w-16 h-16 md:w-24 md:h-24 text-violet-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Conference Rooms', icon: <Users2 size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Integrated AV setups with 4K displays, wireless presentation, and spatial audio for meetings.' },
+      { name: 'Digital Signage', icon: <MonitorPlay size={20} />, anim: 'group-hover:animate-pulse', description: 'Cloud-managed digital displays for advertising, wayfinding, and real-time information.' },
+      { name: 'Video Walls', icon: <LayoutDashboard size={20} />, anim: 'group-hover:scale-105 transition-transform', description: 'Multi-panel seamless display walls for control rooms, lobbies, and command centers.' }
+    ]
+  },
+  {
+    id: 'iptv-smatv',
+    title: 'IPTV & SMATV Systems',
+    icon: <Tv size={32} />,
+    description: 'Television signal reception and distribution for hospitality and commercial properties.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[280px] h-[280px] md:w-[380px] md:h-[380px] border border-indigo-500/20 rounded-full animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
+          <Tv className="w-16 h-16 md:w-24 md:h-24 text-indigo-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'IPTV Solutions', icon: <Tv size={20} />, anim: 'group-hover:animate-pulse', description: 'IP-based television distribution with interactive features, VOD, and channel management.' },
+      { name: 'SMATV Systems', icon: <Wifi size={20} />, anim: 'group-hover:animate-bounce', description: 'Satellite master antenna TV systems for multi-dwelling units and hotel properties.' },
+      { name: 'Content Management', icon: <MonitorPlay size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Centralized content scheduling and management for hospitality entertainment systems.' }
+    ]
+  },
+  {
+    id: 'intercom-telephony',
+    title: 'Intercom & Telephony',
+    icon: <Phone size={32} />,
+    description: 'Internal and external communication systems with IP telephony and video door entry.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[260px] h-[260px] md:w-[360px] md:h-[360px] border border-sky-500/20 rounded-full animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-sky-500/30 shadow-[0_0_50px_rgba(14,165,233,0.3)]">
+          <Phone className="w-16 h-16 md:w-24 md:h-24 text-sky-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'IP Telephony', icon: <PhoneCall size={20} />, anim: 'group-hover:animate-wiggle', description: 'VoIP phone systems with auto-attendant, call recording, and unified communications.' },
+      { name: 'Video Door Entry', icon: <Video size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'HD video intercom systems with mobile app integration and remote door release.' },
+      { name: 'Nurse Call Systems', icon: <BellRing size={20} />, anim: 'group-hover:animate-pulse', description: 'Hospital-grade nurse call and emergency alert systems for healthcare facilities.' }
+    ]
+  },
+  {
+    id: 'network-architecture',
+    title: 'Network Architecture Design',
+    icon: <NetworkIcon size={32} />,
+    description: 'LAN, WAN, and WLAN planning for high-bandwidth seamless connectivity.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-full h-full opacity-20">
+          <div className="absolute top-1/2 left-0 w-full h-[1px] bg-emerald-400"></div>
+          <div className="absolute left-1/2 top-0 w-[1px] h-full bg-emerald-400"></div>
+        </div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.3)]">
+          <NetworkIcon className="w-16 h-16 md:w-24 md:h-24 text-emerald-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'LAN Design', icon: <Network size={20} />, anim: 'group-hover:animate-pulse', description: 'High-performance local area network architecture with managed switches and segmentation.' },
+      { name: 'WAN Design', icon: <Globe size={20} />, anim: 'group-hover:rotate-180 transition-transform duration-700', description: 'Wide area network planning with SD-WAN, MPLS, and redundant connectivity.' },
+      { name: 'WLAN Solutions', icon: <Wifi size={20} />, anim: 'group-hover:animate-bounce', description: 'Enterprise wireless network design with heat mapping, roaming, and high-density coverage.' }
+    ]
+  },
+  {
+    id: 'it-infrastructure',
+    title: 'IT Infrastructure',
+    icon: <ServerCog size={32} />,
+    description: 'Selection, configuration, and installation of routers, switches, firewalls, and servers.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] border border-blue-500/20 rounded-xl rotate-45 animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.3)]">
+          <ServerCog className="w-16 h-16 md:w-24 md:h-24 text-blue-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Server Solutions', icon: <Server size={20} />, anim: 'group-hover:animate-pulse', description: 'Enterprise server deployment, virtualization, and data center infrastructure setup.' },
+      { name: 'Network Hardware', icon: <Cpu size={20} />, anim: 'group-hover:animate-spin-slow', description: 'Routers, managed switches, and firewall appliances for secure network operations.' },
+      { name: 'Storage Solutions', icon: <ServerCog size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'NAS, SAN, and cloud storage integration for data backup and disaster recovery.' }
+    ]
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity Measures',
+    icon: <ShieldAlert size={32} />,
+    description: 'Network security design, policy enforcement, and threat protection.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[280px] h-[280px] md:w-[380px] md:h-[380px] border-2 border-rose-500/20 rounded-full animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-rose-500/30 shadow-[0_0_50px_rgba(244,63,94,0.3)]">
+          <ShieldAlert className="w-16 h-16 md:w-24 md:h-24 text-rose-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Firewall & IDS', icon: <ShieldCheck size={20} />, anim: 'group-hover:animate-pulse', description: 'Next-generation firewalls and intrusion detection systems for perimeter defense.' },
+      { name: 'Access Policies', icon: <Lock size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Role-based access control, network segmentation, and zero-trust policy enforcement.' },
+      { name: 'Threat Monitoring', icon: <ScanLine size={20} />, anim: 'group-hover:animate-ping', description: 'Real-time threat monitoring, vulnerability assessment, and incident response planning.' }
+    ]
+  },
+  {
+    id: 'cloud-integration',
+    title: 'Cloud Integration',
+    icon: <Cloud size={32} />,
+    description: 'On-premises, cloud, and hybrid environment integration for secure data flow.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-t from-sky-500/10 to-transparent rounded-full animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-sky-500/30 shadow-[0_0_50px_rgba(14,165,233,0.3)]">
+          <Cloud className="w-16 h-16 md:w-24 md:h-24 text-sky-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Hybrid Cloud', icon: <Cloud size={20} />, anim: 'group-hover:animate-bounce', description: 'Seamless integration of on-premises infrastructure with public and private cloud platforms.' },
+      { name: 'Data Migration', icon: <ArrowUpDown size={20} />, anim: 'group-hover:translate-y-1 transition-transform', description: 'Secure data migration strategies with minimal downtime and data integrity verification.' },
+      { name: 'Cloud Security', icon: <ShieldCheck size={20} />, anim: 'group-hover:animate-pulse', description: 'Cloud access security, encryption, and compliance management for multi-cloud environments.' }
+    ]
+  },
+  {
+    id: 'it-project-management',
+    title: 'IT Project Management',
+    icon: <ClipboardList size={32} />,
+    description: 'End-to-end procurement, installation, and commissioning of IT equipment.',
+    renderHeroVisual: () => (
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="absolute w-[280px] h-[280px] md:w-[380px] md:h-[380px] border border-amber-500/20 rounded-xl animate-pulse"></div>
+        <div className="relative z-10 p-6 md:p-8 bg-card/80 backdrop-blur-md rounded-2xl border border-amber-500/30 shadow-[0_0_50px_rgba(245,158,11,0.3)]">
+          <ClipboardList className="w-16 h-16 md:w-24 md:h-24 text-amber-400" strokeWidth={1} />
+        </div>
+      </div>
+    ),
+    items: [
+      { name: 'Procurement', icon: <ClipboardList size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Strategic IT procurement with vendor evaluation, negotiation, and supply chain management.' },
+      { name: 'Installation & Commissioning', icon: <Settings2 size={20} />, anim: 'group-hover:rotate-180 transition-transform', description: 'Professional installation, testing, and commissioning of all IT systems and equipment.' },
+      { name: 'Vendor Coordination', icon: <Users2 size={20} />, anim: 'group-hover:animate-pulse', description: 'Multi-vendor project coordination ensuring timely delivery and seamless integration.' }
     ]
   }
 ];
