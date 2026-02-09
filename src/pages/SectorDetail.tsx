@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, Cpu, Wrench } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Wrench, Cpu } from 'lucide-react';
 import { SECTOR_DETAILS } from '@/data/sectorDetails';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -134,20 +134,6 @@ const SectorDetail: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* CTA */}
-          <Reveal direction="up" delay={250}>
-            <div className="text-center rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/50 to-primary/10 border border-primary/20 p-8 md:p-12">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Interested in {sector.name} Solutions?</h3>
-              <p className="text-muted-foreground mb-6 max-w-md mx-auto text-sm md:text-base">Let us design the perfect technology infrastructure for your needs.</p>
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
-              >
-                Get a Quote
-                <ChevronRight className="w-4 h-4" />
-              </a>
-            </div>
-          </Reveal>
         </div>
       </main>
 
