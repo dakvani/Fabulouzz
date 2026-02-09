@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Globe, ChevronRight, Send } from 'lucide-react';
+import React from 'react';
+import { MapPin, Phone, Mail, Globe, ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import Reveal from './Reveal';
-import { SOLUTIONS } from '@/data/solutions';
 
 const offices = [
   {
@@ -42,28 +41,10 @@ const renderContactLine = (item: { title: string }, line: string, key: string) =
 };
 
 const Footer: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Security & Surveillance', message: '' });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, email, phone, service, message } = formData;
-    const subject = `New Inquiry from ${name} - ${service}`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
-    window.location.href = `mailto:info@fabulouzz.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  };
-
-  const inputClass = "w-full px-3 py-2.5 rounded-lg bg-background/50 border border-border text-foreground text-sm focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all duration-300 placeholder-muted-foreground";
-
   return (
     <footer id="contact" className="relative z-10 border-t border-border bg-secondary/30 backdrop-blur-xl">
-      {/* Decorative top accent */}
       <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-      {/* Main footer content */}
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
@@ -84,59 +65,61 @@ const Footer: React.FC = () => {
                   <li><Link to="/events" className="hover:text-primary transition-colors flex items-center gap-1.5 group"><ChevronRight className="w-3 h-3 text-primary/50 group-hover:translate-x-0.5 transition-transform" />Events</Link></li>
                 </ul>
               </div>
+
+              {/* Get Quote Button */}
+              <Link
+                to="/get-quote"
+                className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Get Quote
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Reveal>
           </div>
 
-          {/* Column 2: Office Addresses */}
+          {/* Column 2: India Office (Left) */}
           <div className="lg:col-span-4">
             <Reveal direction="up" delay={100}>
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-6">Our Offices</h3>
-              <div className="space-y-8">
-                {offices.map((office, officeIdx) => (
-                  <div key={officeIdx}>
-                    <h4 className="text-xs sm:text-sm font-bold text-primary mb-3 flex items-center gap-2 uppercase tracking-wider">
-                      <span className="text-base">{office.flag}</span> {office.country}
-                    </h4>
-                    <div className="space-y-3">
-                      {office.details.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 group">
-                          <div className="p-1.5 bg-primary/10 rounded-md text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20 flex-shrink-0 mt-0.5">
-                            {item.icon}
-                          </div>
-                          <div>
-                            {item.lines.map((line, i) => renderContactLine(item, line, `${officeIdx}-${idx}-${i}`))}
-                          </div>
-                        </div>
-                      ))}
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-primary mb-3 flex items-center gap-2 uppercase tracking-wider">
+                  <span className="text-base">{offices[0].flag}</span> {offices[0].country}
+                </h4>
+                <div className="space-y-3">
+                  {offices[0].details.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 group">
+                      <div className="p-1.5 bg-primary/10 rounded-md text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20 flex-shrink-0 mt-0.5">
+                        {item.icon}
+                      </div>
+                      <div>
+                        {item.lines.map((line, i) => renderContactLine(item, line, `0-${idx}-${i}`))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Column 3: Contact Form */}
+          {/* Column 3: KSA Office (Right) */}
           <div className="lg:col-span-5">
             <Reveal direction="right" delay={200}>
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-6">Get In Touch</h3>
-              <form className="space-y-3" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input name="name" value={formData.name} onChange={handleChange} type="text" required className={inputClass} placeholder="Your Name *" />
-                  <input name="email" value={formData.email} onChange={handleChange} type="email" required className={inputClass} placeholder="Email Address *" />
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-primary mb-3 flex items-center gap-2 uppercase tracking-wider">
+                  <span className="text-base">{offices[1].flag}</span> {offices[1].country}
+                </h4>
+                <div className="space-y-3">
+                  {offices[1].details.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 group">
+                      <div className="p-1.5 bg-primary/10 rounded-md text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20 flex-shrink-0 mt-0.5">
+                        {item.icon}
+                      </div>
+                      <div>
+                        {item.lines.map((line, i) => renderContactLine(item, line, `1-${idx}-${i}`))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input name="phone" value={formData.phone} onChange={handleChange} type="tel" required className={inputClass} placeholder="Phone Number *" />
-                  <select name="service" value={formData.service} onChange={handleChange} className={inputClass}>
-                    {SOLUTIONS.map(s => <option key={s.id}>{s.title}</option>)}
-                    <option>Other</option>
-                  </select>
-                </div>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className={`${inputClass} resize-none`} placeholder="Tell us about your requirements..." />
-                <button className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm rounded-lg shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </button>
-              </form>
+              </div>
             </Reveal>
           </div>
         </div>

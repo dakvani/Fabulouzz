@@ -178,7 +178,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
           </Link>
           <Link
-            to="/#contact"
+            to="/get-quote"
             className="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
           >
             Get Quote
@@ -215,7 +215,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               </span>
             </Link>
             <Link
-              to="/#contact"
+              to="/get-quote"
               onClick={() => setIsOpen(false)}
               className="w-full max-w-xs text-center px-6 py-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-lg text-lg mt-8"
             >
