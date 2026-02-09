@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Events from "./pages/Events";
 import SectorDetail from "./pages/SectorDetail";
 import SolutionDetail from "./pages/SolutionDetail";
+import SolutionsPage from "./pages/SolutionsPage";
+import SectorsPage from "./pages/SectorsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import GetQuote from "./pages/GetQuote";
 import NotFound from "./pages/NotFound";
@@ -22,8 +24,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/sectors/:slug" element={<SectorDetail />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/solutions/:id" element={<SolutionDetail />} />
+          <Route path="/sectors" element={<SectorsPage />} />
+          <Route path="/sectors/:slug" element={<SectorDetail />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/get-quote" element={<GetQuote />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const dropdowns: Record<DropdownKey, DropdownConfig> = {
     solutions: {
       label: 'Solutions',
-      anchorHref: '/#solutions',
+      anchorHref: '/solutions',
       items: SOLUTIONS.map(s => ({ name: s.title, to: `/solutions/${s.id}`, icon: s.icon })),
     },
     projects: {
@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     },
     sectors: {
       label: 'Sectors',
-      anchorHref: '/#sectors',
+      anchorHref: '/sectors',
       items: SECTOR_DETAILS.map(s => ({ name: s.name, to: `/sectors/${s.slug}`, icon: s.icon })),
     },
   };
