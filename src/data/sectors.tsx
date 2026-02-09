@@ -117,6 +117,8 @@ export interface Project {
   icon?: React.ReactNode;
   logo?: string;
   isMajor?: boolean;
+  region: 'india' | 'middle-east';
+  description?: string;
 }
 
 // Shuffles array using Fisher-Yates algorithm
@@ -130,39 +132,48 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 export const PROJECTS_DATA_INTERNAL: Project[] = [
-  // Major clients with logos
-  { name: "State Election Commission", logo: stateElectionLogo, isMajor: true },
-  { name: "Education Department Kerala", logo: keralaEducationLogo, isMajor: true },
-  { name: "Industries Department Kerala", logo: keralaIndustriesLogo, isMajor: true },
-  { name: "Municipality Palakkad", logo: palakkadMunicipalityLogo, isMajor: true },
-  { name: "V Care Medicals", logo: vcareLogo, isMajor: true },
-  { name: "PKM Hospital", logo: pkmHospitalLogo, isMajor: true },
-  { name: "MediaOne TV", logo: mediaoneLogo, isMajor: true },
-  { name: "Minar TMT", logo: minarTmtLogo, isMajor: true },
-  { name: "Palakkad Surgical PVT LTD", logo: palakkadSurgicalLogo, isMajor: true },
-  { name: "State School Kalolsavam", logo: kalolsavamLogo, isMajor: true },
+  // India - Major clients with logos
+  { name: "State Election Commission", logo: stateElectionLogo, isMajor: true, region: 'india' },
+  { name: "Education Department Kerala", logo: keralaEducationLogo, isMajor: true, region: 'india' },
+  { name: "Industries Department Kerala", logo: keralaIndustriesLogo, isMajor: true, region: 'india' },
+  { name: "Municipality Palakkad", logo: palakkadMunicipalityLogo, isMajor: true, region: 'india' },
+  { name: "V Care Medicals", logo: vcareLogo, isMajor: true, region: 'india' },
+  { name: "PKM Hospital", logo: pkmHospitalLogo, isMajor: true, region: 'india' },
+  { name: "MediaOne TV", logo: mediaoneLogo, isMajor: true, region: 'india' },
+  { name: "Minar TMT", logo: minarTmtLogo, isMajor: true, region: 'india' },
+  { name: "Palakkad Surgical PVT LTD", logo: palakkadSurgicalLogo, isMajor: true, region: 'india' },
+  { name: "State School Kalolsavam", logo: kalolsavamLogo, isMajor: true, region: 'india' },
   
-  // Other projects (icons only)
-  { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" /> },
-  { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" /> },
-  { name: "Govt. Polytechnic College Palakkad" },
-  { name: "IPT&GPT Shornur" },
-  { name: "Mount Seena Group Of Institutions" },
-  { name: "Technical Highschools Kerala" },
-  { name: "Springs International School" },
-  { name: "Nanma Medical Centre" },
-  { name: "Pinnacle Nissan" },
-  { name: "Alankar Metals" },
-  { name: "Negros Tirupur" },
-  { name: "JR Backers Coimbatore" },
-  { name: "Yashoram Jewelers" },
-  { name: "Craft Mela" },
-  { name: "Peoples Foundation" },
-  { name: "Pirayiri Grama Panchayath" }
+  // India - Other projects
+  { name: "Grand Hyper", icon: <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />, region: 'india' },
+  { name: "Cooperative Spinning Mills", icon: <Factory className="w-3 h-3 sm:w-4 sm:h-4" />, region: 'india' },
+  { name: "Govt. Polytechnic College Palakkad", region: 'india' },
+  { name: "IPT&GPT Shornur", region: 'india' },
+  { name: "Mount Seena Group Of Institutions", region: 'india' },
+  { name: "Technical Highschools Kerala", region: 'india' },
+  { name: "Springs International School", region: 'india' },
+  { name: "Nanma Medical Centre", region: 'india' },
+  { name: "Pinnacle Nissan", region: 'india' },
+  { name: "Alankar Metals", region: 'india' },
+  { name: "Negros Tirupur", region: 'india' },
+  { name: "JR Backers Coimbatore", region: 'india' },
+  { name: "Yashoram Jewelers", region: 'india' },
+  { name: "Craft Mela", region: 'india' },
+  { name: "Peoples Foundation", region: 'india' },
+  { name: "Pirayiri Grama Panchayath", region: 'india' },
+
+  // Middle East projects
+  { name: "King Abdullah Economic City (KAEC)", isMajor: true, region: 'middle-east', description: "CCTV, ACS, ANPR, Biometric Systems, Face Recognition, Radar Speed Monitoring, Gate Automations" },
+  { name: "The World Academy (TWA)", isMajor: true, region: 'middle-east', description: "CCTV, Biometric Access Systems, IT Infrastructure" },
+  { name: "Ncomforts", isMajor: true, region: 'middle-east', description: "CCTV Surveillance, Network Infrastructure" },
+  { name: "CITISCAPE", isMajor: true, region: 'middle-east', description: "Network Infrastructure, CCTV, VoIP/IPPBX, Network Security" },
 ];
 
 // Export shuffled array
 export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL);
+
+export const INDIA_PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL.filter(p => p.region === 'india'));
+export const MIDDLE_EAST_PROJECTS: Project[] = PROJECTS_DATA_INTERNAL.filter(p => p.region === 'middle-east');
 
 export const STATS = [
   { label: 'Years Experience', value: 16, suffix: '+' },
