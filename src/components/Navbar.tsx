@@ -85,26 +85,51 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
           <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
         </Link>
         <div
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl bg-popover border border-border shadow-2xl shadow-black/30 backdrop-blur-xl overflow-hidden transition-all duration-300 origin-top z-[100] ${
+          className={`absolute top-full mt-3 rounded-2xl bg-popover border border-border shadow-2xl shadow-black/30 backdrop-blur-xl overflow-hidden transition-all duration-300 origin-top z-[100] ${
+            key === 'projects' ? 'left-1/2 -translate-x-1/2 w-56' : 'left-1/2 -translate-x-1/2 w-auto'
+          } ${
             isActive ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
           }`}
         >
-          <div className="p-2">
-            {config.items.map((item, idx) => (
-              <Link
-                key={idx}
-                to={item.to}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:text-primary hover:bg-secondary/60 transition-all duration-200 group/item"
-                onClick={() => setOpenDropdown(null)}
-              >
-                {item.icon && (
-                  <span className="text-primary/60 group-hover/item:text-primary group-hover/item:scale-110 transition-all duration-200 shrink-0 [&>svg]:w-5 [&>svg]:h-5">
-                    {item.icon}
-                  </span>
-                )}
-                <span className="font-medium">{item.name}</span>
-              </Link>
-            ))}
+          <div className={`p-2 ${key !== 'projects' ? 'flex gap-1' : ''}`}>
+            {key !== 'projects' ? (
+              (() => {
+                const cols: typeof config.items[] = [];
+                for (let i = 0; i < config.items.length; i += 5) {
+                  cols.push(config.items.slice(i, i + 5));
+                }
+                return cols.map((col, colIdx) => (
+                  <div key={colIdx} className="flex flex-col min-w-[200px]">
+                    {col.map((item, idx) => (
+                      <Link
+                        key={idx}
+                        to={item.to}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:text-primary hover:bg-secondary/60 transition-all duration-200 group/item whitespace-nowrap"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {item.icon && (
+                          <span className="text-primary/60 group-hover/item:text-primary group-hover/item:scale-110 transition-all duration-200 shrink-0 [&>svg]:w-4 [&>svg]:h-4">
+                            {item.icon}
+                          </span>
+                        )}
+                        <span className="font-medium">{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                ));
+              })()
+            ) : (
+              config.items.map((item, idx) => (
+                <Link
+                  key={idx}
+                  to={item.to}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:text-primary hover:bg-secondary/60 transition-all duration-200 group/item"
+                  onClick={() => setOpenDropdown(null)}
+                >
+                  <span className="font-medium">{item.name}</span>
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>
