@@ -1,5 +1,6 @@
 import React, { useState, cloneElement, useRef, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SOLUTIONS } from '@/data/solutions';
 import SectionTitle from './SectionTitle';
 import Reveal from './Reveal';
@@ -92,6 +93,18 @@ const Solutions: React.FC = () => {
             </Reveal>
           </div>
         </div>
+
+        <Reveal direction="up" delay={300}>
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/solutions"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary/10 border border-primary/30 text-primary font-bold text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group"
+            >
+              View All Solutions
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

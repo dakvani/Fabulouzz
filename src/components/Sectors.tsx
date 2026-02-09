@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { SECTOR_DETAILS } from '@/data/sectorDetails';
 import SectionTitle from './SectionTitle';
 import Reveal from './Reveal';
@@ -29,6 +30,18 @@ const Sectors: React.FC = () => {
             </Reveal>
           ))}
         </div>
+
+        <Reveal direction="up" delay={300}>
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/sectors"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary/10 border border-primary/30 text-primary font-bold text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group"
+            >
+              View All Sectors
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
