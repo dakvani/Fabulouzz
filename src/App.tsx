@@ -8,6 +8,7 @@ import Events from "./pages/Events";
 import SectorDetail from "./pages/SectorDetail";
 import SolutionDetail from "./pages/SolutionDetail";
 import ProjectsPage from "./pages/ProjectsPage";
+import GetQuote from "./pages/GetQuote";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/sectors/:slug" element={<SectorDetail />} />
           <Route path="/solutions/:id" element={<SolutionDetail />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/get-quote" element={<GetQuote />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
