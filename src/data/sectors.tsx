@@ -129,7 +129,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
-const PROJECTS_DATA: Project[] = [
+export const PROJECTS_DATA_INTERNAL: Project[] = [
   // Major clients with logos
   { name: "State Election Commission", logo: stateElectionLogo, isMajor: true },
   { name: "Education Department Kerala", logo: keralaEducationLogo, isMajor: true },
@@ -162,7 +162,7 @@ const PROJECTS_DATA: Project[] = [
 ];
 
 // Export shuffled array
-export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA);
+export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL);
 
 export const STATS = [
   { label: 'Years Experience', value: 12, suffix: '+' },

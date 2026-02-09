@@ -1,0 +1,119 @@
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, ChevronRight, Cpu, Wrench } from 'lucide-react';
+import { SOLUTIONS } from '@/data/solutions';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import Reveal from '@/components/Reveal';
+
+const SolutionDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const solution = SOLUTIONS.find(s => s.id === id);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!solution) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Solution Not Found</h1>
+          <Link to="/#solutions" className="text-primary hover:underline">← Back to Home</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="font-sans bg-background text-foreground selection:bg-primary/30 relative overflow-x-hidden">
+      <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full bg-primary/10 blur-[120px] animate-blob mix-blend-screen" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-blue-600/10 blur-[120px] animate-blob animation-delay-2000 mix-blend-screen" />
+      </div>
+
+      <Navbar isScrolled={isScrolled} />
+
+      <main className="relative z-10 pt-28 md:pt-36 pb-16 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <Reveal direction="left">
+            <Link to="/#solutions" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group text-sm">
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Solutions
+            </Link>
+          </Reveal>
+
+          {/* Hero Visual */}
+          <Reveal direction="up">
+            <div className="relative rounded-2xl overflow-hidden mb-8 md:mb-12 border border-border bg-secondary/30 backdrop-blur-sm h-48 md:h-72 flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center">
+                {solution.renderHeroVisual()}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/60 to-transparent p-5 md:p-8 flex items-end gap-4">
+                <div className="p-3 rounded-2xl bg-primary/20 border border-primary/30 text-primary backdrop-blur-sm">
+                  {solution.icon}
+                </div>
+                <div>
+                  <h1 className="text-responsive-hero font-bold text-foreground drop-shadow-lg">{solution.title}</h1>
+                  <p className="text-muted-foreground text-sm md:text-base">{solution.description}</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Solution Items */}
+          <Reveal direction="up" delay={150}>
+            <div className="mb-12 md:mb-16">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
+                <Wrench className="w-5 h-5 text-primary" />
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">What We Offer</h2>
+              </div>
+              <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {solution.items.map((item, idx) => (
+                  <Reveal key={idx} delay={idx * 80} direction="up">
+                    <div className="group relative overflow-hidden rounded-2xl bg-secondary/50 backdrop-blur-sm border border-border hover:border-primary/50 p-5 md:p-6 transition-all duration-500 hover:bg-secondary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 h-full">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-2 rounded-xl bg-primary/10 text-primary shrink-0 ${item.anim}`}>
+                          {item.icon}
+                        </div>
+                        <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
+                          {item.name}
+                        </h3>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* CTA */}
+          <Reveal direction="up" delay={250}>
+            <div className="text-center rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/50 to-primary/10 border border-primary/20 p-8 md:p-12">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">Need {solution.title}?</h3>
+              <p className="text-muted-foreground mb-6 max-w-md mx-auto text-sm md:text-base">Let us design the perfect solution tailored to your requirements.</p>
+              <Link
+                to="/#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
+              >
+                Get a Quote
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </main>
+
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
+};
+
+export default SolutionDetail;
