@@ -13,6 +13,7 @@ export interface SolutionItem {
   name: string;
   icon: React.ReactNode;
   anim: string;
+  description: string;
 }
 
 export interface Solution {
@@ -47,12 +48,12 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'AHD Surveillance', icon: <Camera size={20} />, anim: 'group-hover:animate-bounce' },
-      { name: 'IP Surveillance', icon: <Wifi size={20} />, anim: 'group-hover:animate-pulse' },
-      { name: 'Video Analytics', icon: <ScanLine size={20} />, anim: 'group-hover:animate-ping' },
-      { name: 'Intrusion Detection', icon: <Footprints size={20} />, anim: 'group-hover:animate-bounce' },
-      { name: 'Fire Detection', icon: <Flame size={20} />, anim: 'group-hover:animate-pulse text-destructive' },
-      { name: 'Burglar Alarm', icon: <BellRing size={20} />, anim: 'group-hover:animate-wiggle' }
+      { name: 'AHD Surveillance', icon: <Camera size={20} />, anim: 'group-hover:animate-bounce', description: 'High-definition analog cameras delivering crystal-clear footage for 24/7 property monitoring.' },
+      { name: 'IP Surveillance', icon: <Wifi size={20} />, anim: 'group-hover:animate-pulse', description: 'Network-based cameras with remote access, smart alerts, and seamless cloud storage integration.' },
+      { name: 'Video Analytics', icon: <ScanLine size={20} />, anim: 'group-hover:animate-ping', description: 'AI-powered analysis for object detection, facial recognition, and behavioral pattern identification.' },
+      { name: 'Intrusion Detection', icon: <Footprints size={20} />, anim: 'group-hover:animate-bounce', description: 'Perimeter protection systems using motion sensors, laser barriers, and thermal imaging technology.' },
+      { name: 'Fire Detection', icon: <Flame size={20} />, anim: 'group-hover:animate-pulse text-destructive', description: 'Early warning fire alarm systems with smoke, heat, and gas detectors for rapid emergency response.' },
+      { name: 'Burglar Alarm', icon: <BellRing size={20} />, anim: 'group-hover:animate-wiggle', description: 'Comprehensive alarm systems with door/window sensors, sirens, and instant mobile notifications.' }
     ]
   },
   {
@@ -77,12 +78,12 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'Gate Opener', icon: <DoorOpen size={20} />, anim: 'group-hover:-translate-x-1 transition-transform' },
-      { name: 'Rolling Shutter', icon: <ArrowDownToLine size={20} />, anim: 'group-hover:translate-y-1 transition-transform' },
-      { name: 'Barrier/Bollard', icon: <Slash size={20} className="rotate-90" />, anim: 'group-hover:rotate-180 transition-transform' },
-      { name: 'Sliding Glass Door', icon: <MoveHorizontal size={20} />, anim: 'group-hover:scale-x-125 transition-transform' },
-      { name: 'Flap Barrier', icon: <Columns size={20} />, anim: 'group-hover:scale-110 transition-transform' },
-      { name: 'Vehicle Entrance', icon: <Car size={20} />, anim: 'group-hover:translate-x-2 transition-transform' }
+      { name: 'Gate Opener', icon: <DoorOpen size={20} />, anim: 'group-hover:-translate-x-1 transition-transform', description: 'Automated swing and sliding gate systems with remote control and safety sensors for residential and commercial use.' },
+      { name: 'Rolling Shutter', icon: <ArrowDownToLine size={20} />, anim: 'group-hover:translate-y-1 transition-transform', description: 'Motorized rolling shutters with tubular motors for storefronts, garages, and industrial facilities.' },
+      { name: 'Barrier/Bollard', icon: <Slash size={20} className="rotate-90" />, anim: 'group-hover:rotate-180 transition-transform', description: 'Traffic control barriers and retractable bollards for parking lots, toll plazas, and restricted zones.' },
+      { name: 'Sliding Glass Door', icon: <MoveHorizontal size={20} />, anim: 'group-hover:scale-x-125 transition-transform', description: 'Automatic sliding door systems for commercial entrances with motion detection and safety compliance.' },
+      { name: 'Flap Barrier', icon: <Columns size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'High-throughput pedestrian access control gates for offices, metros, and public buildings.' },
+      { name: 'Vehicle Entrance', icon: <Car size={20} />, anim: 'group-hover:translate-x-2 transition-transform', description: 'ANPR and UHF-based vehicle identification systems for seamless parking and access management.' }
     ]
   },
   {
@@ -106,12 +107,12 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'Networked Access', icon: <Network size={20} />, anim: 'group-hover:animate-pulse' },
-      { name: 'Multi-Door Control', icon: <LayoutGrid size={20} />, anim: 'group-hover:rotate-90 transition-transform' },
-      { name: 'Standalone Access', icon: <KeyRound size={20} />, anim: 'group-hover:rotate-45 transition-transform' },
-      { name: 'Elevator Control', icon: <ArrowUpDown size={20} />, anim: 'group-hover:translate-y-1 transition-transform' },
-      { name: 'Visitor Management', icon: <UserCheck size={20} />, anim: 'group-hover:scale-110 transition-transform' },
-      { name: 'Time & Attendance', icon: <Clock size={20} />, anim: 'group-hover:animate-spin-slow' }
+      { name: 'Networked Access', icon: <Network size={20} />, anim: 'group-hover:animate-pulse', description: 'Centralized access control systems managing multiple locations from a single server with real-time monitoring.' },
+      { name: 'Multi-Door Control', icon: <LayoutGrid size={20} />, anim: 'group-hover:rotate-90 transition-transform', description: 'Scalable controllers managing multiple entry points with card, biometric, and mobile credential support.' },
+      { name: 'Standalone Access', icon: <KeyRound size={20} />, anim: 'group-hover:rotate-45 transition-transform', description: 'Independent door locks with keypad, fingerprint, or RFID access for small offices and server rooms.' },
+      { name: 'Elevator Control', icon: <ArrowUpDown size={20} />, anim: 'group-hover:translate-y-1 transition-transform', description: 'Floor-level access restriction for elevators, allowing authorized users to reach designated floors only.' },
+      { name: 'Visitor Management', icon: <UserCheck size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'Digital check-in systems with ID scanning, host notifications, and visitor badge printing.' },
+      { name: 'Time & Attendance', icon: <Clock size={20} />, anim: 'group-hover:animate-spin-slow', description: 'Biometric and RFID-based attendance tracking integrated with payroll and HR management systems.' }
     ]
   },
   {
@@ -135,12 +136,12 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'Video Intercom', icon: <Video size={20} />, anim: 'group-hover:scale-110 transition-transform' },
-      { name: 'Audio Intercom', icon: <Mic2 size={20} />, anim: 'group-hover:animate-pulse' },
-      { name: 'PA Systems', icon: <Speaker size={20} />, anim: 'group-hover:animate-bounce' },
-      { name: 'Video Conferencing', icon: <Users2 size={20} />, anim: 'group-hover:translate-y-1 transition-transform' },
-      { name: 'Digital Signage', icon: <MonitorPlay size={20} />, anim: 'group-hover:text-primary transition-colors' },
-      { name: 'Video Wall', icon: <LayoutDashboard size={20} />, anim: 'group-hover:scale-105 transition-transform' }
+      { name: 'Video Intercom', icon: <Video size={20} />, anim: 'group-hover:scale-110 transition-transform', description: 'HD video door stations with two-way communication, mobile app integration, and remote door release.' },
+      { name: 'Audio Intercom', icon: <Mic2 size={20} />, anim: 'group-hover:animate-pulse', description: 'Crystal-clear audio communication systems for multi-story buildings and industrial environments.' },
+      { name: 'PA Systems', icon: <Speaker size={20} />, anim: 'group-hover:animate-bounce', description: 'Zoned public address and voice evacuation systems for campuses, malls, and large facilities.' },
+      { name: 'Video Conferencing', icon: <Users2 size={20} />, anim: 'group-hover:translate-y-1 transition-transform', description: 'Enterprise-grade conferencing solutions with 4K cameras, spatial audio, and wireless presentation.' },
+      { name: 'Digital Signage', icon: <MonitorPlay size={20} />, anim: 'group-hover:text-primary transition-colors', description: 'Cloud-managed digital displays for advertising, wayfinding, and real-time information delivery.' },
+      { name: 'Video Wall', icon: <LayoutDashboard size={20} />, anim: 'group-hover:scale-105 transition-transform', description: 'Multi-panel display walls with seamless bezels for control rooms, lobbies, and command centers.' }
     ]
   },
   {
@@ -166,12 +167,12 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'HT & LT Panels', icon: <Settings2 size={20} />, anim: 'group-hover:rotate-180 transition-transform' },
-      { name: 'Electrification', icon: <Zap size={20} />, anim: 'group-hover:text-yellow-500 transition-colors' },
-      { name: 'Earthing', icon: <ArrowDown size={20} />, anim: 'group-hover:translate-y-2 transition-transform' },
-      { name: 'Lighting Automation', icon: <Lightbulb size={20} />, anim: 'group-hover:text-yellow-400 transition-all' },
-      { name: 'Profile Lighting', icon: <AlignJustify size={20} />, anim: 'group-hover:scale-x-110 transition-transform' },
-      { name: 'Panel Lighting', icon: <Square size={20} />, anim: 'group-hover:rotate-90 transition-transform' }
+      { name: 'HT & LT Panels', icon: <Settings2 size={20} />, anim: 'group-hover:rotate-180 transition-transform', description: 'Custom-built high-tension and low-tension electrical panels with safety interlocks and monitoring.' },
+      { name: 'Electrification', icon: <Zap size={20} />, anim: 'group-hover:text-yellow-500 transition-colors', description: 'End-to-end electrical wiring and distribution for commercial, industrial, and residential projects.' },
+      { name: 'Earthing', icon: <ArrowDown size={20} />, anim: 'group-hover:translate-y-2 transition-transform', description: 'Professional earthing and lightning protection systems ensuring safety and regulatory compliance.' },
+      { name: 'Lighting Automation', icon: <Lightbulb size={20} />, anim: 'group-hover:text-yellow-400 transition-all', description: 'Smart lighting control with occupancy sensors, daylight harvesting, and scheduled dimming profiles.' },
+      { name: 'Profile Lighting', icon: <AlignJustify size={20} />, anim: 'group-hover:scale-x-110 transition-transform', description: 'Architectural LED profile lighting for facades, corridors, and interior design accents.' },
+      { name: 'Panel Lighting', icon: <Square size={20} />, anim: 'group-hover:rotate-90 transition-transform', description: 'Energy-efficient LED panel lights for offices, hospitals, and commercial spaces with uniform illumination.' }
     ]
   },
   {
@@ -194,9 +195,9 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'Solar Power Plants', icon: <Factory size={20} />, anim: 'group-hover:-translate-y-1 transition-transform' },
-      { name: 'Street Lighting', icon: <Lamp size={20} />, anim: 'group-hover:text-yellow-400 transition-colors' },
-      { name: 'UPS & Battery', icon: <BatteryCharging size={20} />, anim: 'group-hover:animate-pulse' }
+      { name: 'Solar Power Plants', icon: <Factory size={20} />, anim: 'group-hover:-translate-y-1 transition-transform', description: 'Rooftop and ground-mounted solar installations with net metering for maximum energy savings.' },
+      { name: 'Street Lighting', icon: <Lamp size={20} />, anim: 'group-hover:text-yellow-400 transition-colors', description: 'Solar-powered LED street lights with dusk-to-dawn automation and battery backup systems.' },
+      { name: 'UPS & Battery', icon: <BatteryCharging size={20} />, anim: 'group-hover:animate-pulse', description: 'Uninterruptible power supply solutions with lithium-ion and tubular battery banks for critical loads.' }
     ]
   },
   {
@@ -224,9 +225,9 @@ export const SOLUTIONS: Solution[] = [
       </div>
     ),
     items: [
-      { name: 'System Integration', icon: <Cpu size={20} />, anim: 'group-hover:animate-spin-slow' },
-      { name: 'LAN / WAN', icon: <Globe size={20} />, anim: 'group-hover:rotate-180 transition-transform duration-700' },
-      { name: 'IPBX / EPBX', icon: <PhoneCall size={20} />, anim: 'group-hover:animate-wiggle' }
+      { name: 'System Integration', icon: <Cpu size={20} />, anim: 'group-hover:animate-spin-slow', description: 'End-to-end IT system design, assembly, and deployment including servers, workstations, and peripherals.' },
+      { name: 'LAN / WAN', icon: <Globe size={20} />, anim: 'group-hover:rotate-180 transition-transform duration-700', description: 'Structured cabling and network infrastructure with fiber optics, managed switches, and Wi-Fi solutions.' },
+      { name: 'IPBX / EPBX', icon: <PhoneCall size={20} />, anim: 'group-hover:animate-wiggle', description: 'IP-based telephony systems with auto-attendant, call recording, and unified communications features.' }
     ]
   }
 ];
