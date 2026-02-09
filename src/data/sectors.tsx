@@ -165,7 +165,7 @@ export const PROJECTS_DATA_INTERNAL: Project[] = [
 export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL);
 
 export const STATS = [
-  { label: 'Years Experience', value: 12, suffix: '+' },
+  { label: 'Years Experience', value: 16, suffix: '+' },
   { label: 'Satisfied Customers', value: 3000, suffix: '+' },
   { label: 'Mega Projects', value: 150, suffix: '+' },
   { label: 'Support 24/7', value: 'Yes', isText: true }
