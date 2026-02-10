@@ -7,18 +7,18 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Reveal from '@/components/Reveal';
 
-type Region = 'india' | 'middle-east';
+type Region = 'india' | 'saudi-arabia';
 
 const TABS: { key: Region; label: string; flag: string }[] = [
   { key: 'india', label: 'India', flag: '🇮🇳' },
-  { key: 'middle-east', label: 'Middle East', flag: '🇸🇦' },
+  { key: 'saudi-arabia', label: 'Saudi Arabia', flag: '🇸🇦' },
 ];
 
 const ProjectsPage: React.FC = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const regionParam = searchParams.get('region') as Region | null;
-  const [activeRegion, setActiveRegion] = useState<Region>(regionParam === 'middle-east' ? 'middle-east' : 'india');
+  const [activeRegion, setActiveRegion] = useState<Region>(regionParam === 'saudi-arabia' ? 'saudi-arabia' : 'india');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,7 +28,7 @@ const ProjectsPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (regionParam === 'india' || regionParam === 'middle-east') {
+    if (regionParam === 'india' || regionParam === 'saudi-arabia') {
       setActiveRegion(regionParam);
     }
   }, [regionParam]);

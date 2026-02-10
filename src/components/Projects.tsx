@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Award, Users, Phone } from 'lucide-react';
-import { INDIA_PROJECTS, MIDDLE_EAST_PROJECTS, type Project } from '@/data/sectors';
+import { INDIA_PROJECTS, SAUDI_ARABIA_PROJECTS, type Project } from '@/data/sectors';
 import SectionTitle from './SectionTitle';
 import Reveal from './Reveal';
 
-type Region = 'india' | 'middle-east';
+type Region = 'india' | 'saudi-arabia';
 
 const TABS: { key: Region; label: string; flag: string }[] = [
   { key: 'india', label: 'India', flag: '🇮🇳' },
-  { key: 'middle-east', label: 'Middle East', flag: '🇸🇦' },
+  { key: 'saudi-arabia', label: 'Saudi Arabia', flag: '🇸🇦' },
 ];
 
 const ProjectChip: React.FC<{ project: Project; isActive: boolean }> = ({ project, isActive }) => (
@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const currentProjects = useMemo(
-    () => activeRegion === 'india' ? INDIA_PROJECTS : MIDDLE_EAST_PROJECTS,
+    () => activeRegion === 'india' ? INDIA_PROJECTS : SAUDI_ARABIA_PROJECTS,
     [activeRegion]
   );
 
