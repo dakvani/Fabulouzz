@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
       anchorHref: "/projects",
       items: [
         { name: "India", to: "/projects?region=india" },
-        { name: "Middle East", to: "/projects?region=middle-east" },
+        { name: "Saudi Arabia", to: "/projects?region=saudi-arabia" },
       ],
     },
     sectors: {

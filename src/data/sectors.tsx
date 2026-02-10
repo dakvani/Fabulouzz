@@ -117,7 +117,7 @@ export interface Project {
   icon?: React.ReactNode;
   logo?: string;
   isMajor?: boolean;
-  region: 'india' | 'middle-east';
+  region: 'india' | 'saudi-arabia';
   description?: string;
 }
 
@@ -163,17 +163,17 @@ export const PROJECTS_DATA_INTERNAL: Project[] = [
   { name: "Pirayiri Grama Panchayath", region: 'india' },
 
   // Middle East projects
-  { name: "King Abdullah Economic City (KAEC)", isMajor: true, region: 'middle-east', description: "CCTV, ACS, ANPR, Biometric Systems, Face Recognition, Radar Speed Monitoring, Gate Automations" },
-  { name: "The World Academy (TWA)", isMajor: true, region: 'middle-east', description: "CCTV, Biometric Access Systems, IT Infrastructure" },
-  { name: "Ncomforts", isMajor: true, region: 'middle-east', description: "CCTV Surveillance, Network Infrastructure" },
-  { name: "CITISCAPE", isMajor: true, region: 'middle-east', description: "Network Infrastructure, CCTV, VoIP/IPPBX, Network Security" },
+  { name: "King Abdullah Economic City (KAEC)", isMajor: true, region: 'saudi-arabia', description: "CCTV, ACS, ANPR, Biometric Systems, Face Recognition, Radar Speed Monitoring, Gate Automations" },
+  { name: "The World Academy (TWA)", isMajor: true, region: 'saudi-arabia', description: "CCTV, Biometric Access Systems, IT Infrastructure" },
+  { name: "Ncomforts", isMajor: true, region: 'saudi-arabia', description: "CCTV Surveillance, Network Infrastructure" },
+  { name: "CITISCAPE", isMajor: true, region: 'saudi-arabia', description: "Network Infrastructure, CCTV, VoIP/IPPBX, Network Security" },
 ];
 
 // Export shuffled array
 export const PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL);
 
 export const INDIA_PROJECTS: Project[] = shuffleArray(PROJECTS_DATA_INTERNAL.filter(p => p.region === 'india'));
-export const MIDDLE_EAST_PROJECTS: Project[] = PROJECTS_DATA_INTERNAL.filter(p => p.region === 'middle-east');
+export const SAUDI_ARABIA_PROJECTS: Project[] = PROJECTS_DATA_INTERNAL.filter(p => p.region === 'saudi-arabia');
 
 export const STATS = [
   { label: 'Years Experience', value: 16, suffix: '+' },
