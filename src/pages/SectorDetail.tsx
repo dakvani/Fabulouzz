@@ -44,7 +44,7 @@ const SectorDetail: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Back link */}
           <Reveal direction="left">
-            <Link to="/#sectors" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group text-sm">
+            <Link to="/sectors" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group text-sm">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Sectors
             </Link>
