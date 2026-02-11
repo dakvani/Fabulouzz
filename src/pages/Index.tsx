@@ -30,26 +30,60 @@ const Index = () => {
       
       {/* Sunlight Shadow Projection */}
       <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* Main sunlight ray from top-right corner */}
+        {/* Light beam 1 - from top-right hole, projecting diagonally */}
         <div 
-          className="absolute -top-[20%] -right-[10%] w-[140vw] h-[140vh] opacity-[0.14]"
+          className="absolute -top-[5%] right-[8%] w-[300px] md:w-[500px] h-[200vh] opacity-[0.18]"
           style={{
-            background: 'conic-gradient(from 200deg at 90% 5%, hsl(var(--primary) / 0.6) 0deg, hsl(45 90% 65% / 0.4) 15deg, hsl(var(--primary) / 0.3) 30deg, transparent 60deg, transparent 300deg, hsl(45 80% 70% / 0.2) 340deg, hsl(var(--primary) / 0.5) 360deg)',
+            background: 'linear-gradient(180deg, hsl(45 90% 70% / 0.7) 0%, hsl(45 85% 65% / 0.4) 15%, hsl(var(--primary) / 0.15) 40%, transparent 70%)',
+            transform: 'rotate(-25deg)',
+            transformOrigin: 'top center',
+            filter: 'blur(40px)',
           }}
         ></div>
-        {/* Soft warm glow at the light source corner */}
-        <div className="absolute -top-[5%] -right-[5%] w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full opacity-[0.15]"
-          style={{
-            background: 'radial-gradient(circle, hsl(45 90% 70% / 0.6) 0%, hsl(var(--primary) / 0.3) 40%, transparent 70%)',
-          }}
-        ></div>
-        {/* Diagonal light streak across the page */}
+        {/* Light beam 1 - sharp core */}
         <div 
-          className="absolute top-0 right-0 w-full h-full opacity-[0.08]"
+          className="absolute -top-[5%] right-[8%] w-[120px] md:w-[200px] h-[200vh] opacity-[0.12]"
           style={{
-            background: 'linear-gradient(135deg, transparent 20%, hsl(45 80% 65% / 0.5) 35%, hsl(var(--primary) / 0.3) 45%, transparent 55%)',
+            background: 'linear-gradient(180deg, hsl(45 95% 75% / 0.9) 0%, hsl(45 90% 70% / 0.5) 20%, hsl(var(--primary) / 0.2) 50%, transparent 75%)',
+            transform: 'rotate(-25deg)',
+            transformOrigin: 'top center',
+            filter: 'blur(15px)',
           }}
         ></div>
+
+        {/* Light beam 2 - from second hole, slightly different angle */}
+        <div 
+          className="absolute -top-[5%] right-[22%] w-[250px] md:w-[420px] h-[200vh] opacity-[0.15]"
+          style={{
+            background: 'linear-gradient(180deg, hsl(45 85% 68% / 0.6) 0%, hsl(45 80% 60% / 0.35) 15%, hsl(var(--primary) / 0.12) 40%, transparent 65%)',
+            transform: 'rotate(-15deg)',
+            transformOrigin: 'top center',
+            filter: 'blur(45px)',
+          }}
+        ></div>
+        {/* Light beam 2 - sharp core */}
+        <div 
+          className="absolute -top-[5%] right-[22%] w-[100px] md:w-[180px] h-[200vh] opacity-[0.10]"
+          style={{
+            background: 'linear-gradient(180deg, hsl(45 90% 72% / 0.8) 0%, hsl(45 85% 65% / 0.45) 20%, hsl(var(--primary) / 0.15) 50%, transparent 70%)',
+            transform: 'rotate(-15deg)',
+            transformOrigin: 'top center',
+            filter: 'blur(12px)',
+          }}
+        ></div>
+
+        {/* Glow at the two source holes */}
+        <div className="absolute -top-[2%] right-[6%] w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full opacity-[0.20]"
+          style={{
+            background: 'radial-gradient(circle, hsl(45 95% 75% / 0.8) 0%, hsl(45 90% 70% / 0.3) 50%, transparent 75%)',
+          }}
+        ></div>
+        <div className="absolute -top-[2%] right-[20%] w-[120px] h-[120px] md:w-[170px] md:h-[170px] rounded-full opacity-[0.17]"
+          style={{
+            background: 'radial-gradient(circle, hsl(45 90% 72% / 0.7) 0%, hsl(45 85% 65% / 0.25) 50%, transparent 75%)',
+          }}
+        ></div>
+
         {/* Existing animated blobs */}
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full bg-primary/10 blur-[120px] animate-blob mix-blend-screen"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-blue-600/10 blur-[120px] animate-blob animation-delay-2000 mix-blend-screen"></div>
