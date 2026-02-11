@@ -70,17 +70,6 @@ const Index = () => {
           }}
         ></div>
 
-        {/* Glowing source holes - pulsing */}
-        <div className="absolute -top-[3%] right-[4%] w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full animate-glow-pulse"
-          style={{
-            background: 'radial-gradient(circle, hsl(45 95% 80% / 0.9) 0%, hsl(45 90% 70% / 0.4) 40%, transparent 70%)',
-          }}
-        ></div>
-        <div className="absolute -top-[3%] right-[16%] w-[80px] h-[80px] md:w-[120px] md:h-[120px] rounded-full animate-glow-pulse animation-delay-2000"
-          style={{
-            background: 'radial-gradient(circle, hsl(45 92% 76% / 0.8) 0%, hsl(45 85% 65% / 0.3) 40%, transparent 70%)',
-          }}
-        ></div>
 
         {/* Dust particles in beam 1 - increased count */}
         {Array.from({ length: 28 }).map((_, i) => (
