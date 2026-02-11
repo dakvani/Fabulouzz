@@ -32,20 +32,20 @@ const Index = () => {
       <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
         {/* Main sunlight ray from top-right corner */}
         <div 
-          className="absolute -top-[20%] -right-[10%] w-[140vw] h-[140vh] opacity-[0.07]"
+          className="absolute -top-[20%] -right-[10%] w-[140vw] h-[140vh] opacity-[0.14]"
           style={{
             background: 'conic-gradient(from 200deg at 90% 5%, hsl(var(--primary) / 0.6) 0deg, hsl(45 90% 65% / 0.4) 15deg, hsl(var(--primary) / 0.3) 30deg, transparent 60deg, transparent 300deg, hsl(45 80% 70% / 0.2) 340deg, hsl(var(--primary) / 0.5) 360deg)',
           }}
         ></div>
         {/* Soft warm glow at the light source corner */}
-        <div className="absolute -top-[5%] -right-[5%] w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full opacity-[0.08]"
+        <div className="absolute -top-[5%] -right-[5%] w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full opacity-[0.15]"
           style={{
             background: 'radial-gradient(circle, hsl(45 90% 70% / 0.6) 0%, hsl(var(--primary) / 0.3) 40%, transparent 70%)',
           }}
         ></div>
         {/* Diagonal light streak across the page */}
         <div 
-          className="absolute top-0 right-0 w-full h-full opacity-[0.04]"
+          className="absolute top-0 right-0 w-full h-full opacity-[0.08]"
           style={{
             background: 'linear-gradient(135deg, transparent 20%, hsl(45 80% 65% / 0.5) 35%, hsl(var(--primary) / 0.3) 45%, transparent 55%)',
           }}
