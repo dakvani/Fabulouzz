@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 import ParallaxSection from '@/components/ParallaxSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import WelcomePopup from '@/components/WelcomePopup';
+
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <div className="font-sans bg-background text-foreground selection:bg-primary/30 selection:text-foreground relative overflow-x-hidden subpixel-antialiased">
-      <WelcomePopup />
+      
       <ScrollProgress />
       
       {/* Sunlight Shadow Projection */}
