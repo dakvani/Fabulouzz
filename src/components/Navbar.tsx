@@ -199,10 +199,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
+            className="relative px-5 py-2 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden border border-primary/40 hover:border-primary hover:scale-105 active:scale-95"
           >
-            <span className="relative z-10">Sightline</span>
-            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
+            <span className="relative z-10 bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+              Sightline
+            </span>
+            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
           </a>
           <Link
             to="/get-quote"
@@ -251,9 +254,12 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all"
+              className="text-2xl font-bold transform hover:scale-105 transition-all flex items-center gap-2"
             >
-              Sightline
+              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+              <span className="bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                Sightline
+              </span>
             </a>
             <Link
               to="/get-quote"
