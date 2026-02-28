@@ -195,6 +195,15 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </span>
             <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
           </Link>
+          <a
+            href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 group overflow-hidden text-foreground/80 hover:text-primary"
+          >
+            <span className="relative z-10">Sightline</span>
+            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-secondary/50"></span>
+          </a>
           <Link
             to="/get-quote"
             className="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
@@ -237,6 +246,15 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 Events
               </span>
             </Link>
+            <a
+              href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="text-2xl font-bold text-foreground hover:text-primary transform hover:scale-105 transition-all"
+            >
+              Sightline
+            </a>
             <Link
               to="/get-quote"
               onClick={() => setIsOpen(false)}
