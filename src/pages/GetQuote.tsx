@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Globe, Send, Building2, PhoneCall } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Send, Building2, PhoneCall, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { SOLUTIONS } from '@/data/solutions';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
 import ScrollProgress from '@/components/ScrollProgress';
 import WhatsAppButton from '@/components/WhatsAppButton';
-
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 const offices = [
   {
     country: 'India',
@@ -46,6 +47,7 @@ const renderContactLine = (item: { title: string }, line: string, key: string) =
 const GetQuote: React.FC = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [formData, setFormData] = useState({ name: '', company: '', email: '', phone: '', service: 'Security & Surveillance', message: '' });
+  const [sending, setSending] = useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -57,12 +59,22 @@ const GetQuote: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, company, email, phone, service, message } = formData;
-    const subject = `New Inquiry from ${name} - ${service}`;
-    const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
-    window.location.href = `mailto:info@fabulouzz.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+      if (error) throw error;
+      toast.success('Message sent successfully! We\'ll get back to you soon.');
+      setFormData({ name: '', company: '', email: '', phone: '', service: 'Security & Surveillance', message: '' });
+    } catch (err) {
+      console.error('Send error:', err);
+      toast.error('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass = "w-full px-4 py-3 rounded-xl bg-background/50 border border-border text-foreground text-sm focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition-all duration-300 placeholder-muted-foreground";
@@ -176,9 +188,21 @@ const GetQuote: React.FC = () => {
                       <label className="block text-xs font-bold text-muted-foreground mb-1.5 uppercase tracking-wider">Message</label>
                       <textarea name="message" value={formData.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Tell us about your requirements..." />
                     </div>
-                    <button className="w-full py-3.5 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
-                      <Send className="w-4 h-4" />
-                      Send Message
+                    <button
+                      disabled={sending}
+                      className="w-full py-3.5 bg-primary hover:bg-lime-dark text-primary-foreground font-bold text-sm rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                    >
+                      {sending ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Send Message
+                        </>
+                      )}
                     </button>
                   </form>
                 </div>
