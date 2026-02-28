@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Link } from "react-router-dom";
 import BrandLogo from "./BrandLogo";
 import { SECTOR_DETAILS } from "@/data/sectorDetails";
@@ -195,18 +196,27 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </span>
             <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
           </Link>
-          <a
-            href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative px-5 py-2 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden border border-primary/40 hover:border-primary hover:scale-105 active:scale-95"
-          >
-            <span className="relative z-10 bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
-              Sightline
-            </span>
-            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
-          </a>
+          <TooltipProvider delayDuration={200}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a
+                  href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative px-5 py-2 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden border border-primary/40 hover:border-primary hover:scale-105 active:scale-95"
+                >
+                  <span className="relative z-10 bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+                    Sightline
+                  </span>
+                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="bg-popover border-border text-foreground text-sm max-w-[220px] text-center">
+                <p>Open <strong>Sightline</strong> — our intelligent monitoring & analytics platform</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <Link
             to="/get-quote"
             className="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-lime-dark text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
