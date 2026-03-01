@@ -203,13 +203,19 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                   href="https://fabulouzzsightline.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative px-5 py-2 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden border border-primary/40 hover:border-primary hover:scale-105 active:scale-95"
+                  className="relative px-5 py-2.5 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden bg-gradient-to-r from-primary/15 via-primary/5 to-primary/15 border border-primary/50 hover:border-primary hover:shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95"
                 >
-                  <span className="relative z-10 bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
-                    Sightline
+                  {/* Animated glow background */}
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x bg-[length:200%_auto]" />
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    <span className="relative flex items-center justify-center w-5 h-5">
+                      <span className="absolute inset-0 bg-primary/30 rounded-full animate-ping opacity-40" />
+                      <Sparkles className="w-3.5 h-3.5 text-primary relative" />
+                    </span>
+                    <span className="bg-gradient-to-r from-primary via-foreground to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                      Sightline
+                    </span>
                   </span>
-                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10"></span>
                 </a>
               </TooltipTrigger>
               <TooltipContent side="bottom" className="bg-popover border-border text-foreground text-sm max-w-[220px] text-center">
@@ -264,10 +270,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold transform hover:scale-105 transition-all flex items-center gap-2"
+              className="relative px-6 py-3 rounded-full font-extrabold text-lg uppercase tracking-widest transition-all duration-300 group overflow-hidden bg-gradient-to-r from-primary/15 via-primary/5 to-primary/15 border border-primary/50 hover:border-primary hover:shadow-lg hover:shadow-primary/25 flex items-center gap-2"
             >
-              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-              <span className="bg-gradient-to-r from-primary via-lime-glow to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+              <span className="relative flex items-center justify-center w-6 h-6">
+                <span className="absolute inset-0 bg-primary/30 rounded-full animate-ping opacity-40" />
+                <Sparkles className="w-4 h-4 text-primary relative" />
+              </span>
+              <span className="bg-gradient-to-r from-primary via-foreground to-primary bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
                 Sightline
               </span>
             </a>
