@@ -23,7 +23,7 @@ const offices = [
     country: 'Kingdom of Saudi Arabia',
     flag: '🇸🇦',
     details: [
-      { icon: <MapPin className="w-5 h-5" />, title: "Office", lines: ["Fabulouzz Technologies", "Al – Aqsa Business Park,", "Al – Rihab Dist,", "Jeddah, 23345, KSA"] },
+      { icon: <MapPin className="w-5 h-5" />, title: "Office", lines: ["Supply Stars for Trade Est,", "7621, King Fahad Road,", "Al-Baghdadiyah Dist,", "Jeddah 22241, KSA"] },
       { icon: <Phone className="w-5 h-5" />, title: "Phone", lines: ["+966 50 2 918 573"] },
       { icon: <Mail className="w-5 h-5" />, title: "Email", lines: ["support@fabulouzz.com"] },
       { icon: <Globe className="w-5 h-5" />, title: "Web", lines: ["www.fabulouzz.com"] },
