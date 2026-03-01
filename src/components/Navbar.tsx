@@ -200,7 +200,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <a
-                  href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
+                  href="https://fabulouzzsightline.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative px-5 py-2 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 group overflow-hidden border border-primary/40 hover:border-primary hover:scale-105 active:scale-95"
@@ -260,7 +260,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               </span>
             </Link>
             <a
-              href="https://lovable.dev/projects/4c472e6a-e53b-4ffa-8778-46e73543dfbc"
+              href="https://fabulouzzsightline.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
